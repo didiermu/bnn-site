@@ -1,0 +1,68 @@
+& {
+    @include font-primary-regular;
+    color: var(--color-blanco);
+    background: var(--color-negro);
+    overflow-x: hidden;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    li,
+    figure {
+        margin: 0;
+    }
+
+    main {
+        overflow: hidden;
+    }
+
+    section:not(.footer, .logos, .sticky) {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: var(--color-negro);
+        z-index: 2;
+        position: relative;
+    }
+
+    .container {
+        @include media-breakpoint-up(xl) {
+            max-width: none;
+            padding: 0 80px;
+        }
+        @include media-breakpoint-up(xxl) {
+            max-width: none;
+            padding: 0 122px;
+        }
+    }
+
+    .custom-container {
+        @include media-breakpoint-up(md) {
+            @include make-container(48px);
+        }
+
+        @include media-breakpoint-up(lg) {
+            @include make-container(128px);
+        }
+
+        @include media-breakpoint-up(xl) {
+            @include make-container(118px);
+        }
+
+        @include media-breakpoint-up(xxl) {
+            @include make-container(118px);
+        }
+    }
+}
+
+// @media(width < 768px) {
+//     & {
+
+//     }
+// }

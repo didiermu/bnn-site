@@ -1,0 +1,23 @@
+.boton {
+    position: relative;
+    border: 0;
+    background: none;
+    padding: 12px 40px;
+    @include text-sm-16;
+
+    &::before {
+        content: "";
+        background: var(--color-gris-500);
+        position: absolute;
+        border-radius: 4px 12px 4px 12px;
+        inset: 0;
+        z-index: -1;
+        display: block;
+        transform: skew(-10deg);
+    }
+
+    // &.primario {
+    //     background: var(--color-primario-400);
+    //     color: var(--color-blanco);
+    // }
+}
