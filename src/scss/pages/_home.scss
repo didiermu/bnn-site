@@ -59,6 +59,22 @@
             }
         }
 
+        #forma-2 {
+            position: absolute;
+            top: 140px;
+            z-index: 1;
+            right: 0;
+            width: 80%;
+        }
+
+        #forma-3 {
+            position: absolute;
+            top: 140px;
+            z-index: 1;
+            left: 0;
+            width: 100%;
+        }
+
         &__categoria {
             @include text-lg-30;
             color: var(--color-gris-500);
@@ -92,23 +108,10 @@
         }
 
         &__imagen {
-            @keyframes floating {
-                0% {
-                    transform: translate(0px);
-                }
-
-                50% {
-                    transform: translate(20px, 20px);
-                }
-
-                100% {
-                    transform: translate(0px);
-                }
-            }
-
             picture {
                 display: block;
-                animation: floating 5s infinite ease-in-out;
+                transform: scale(1.4);
+                max-width: 640px;
 
                 img {
                     width: 100%;
@@ -124,6 +127,35 @@
             place-content: center;
             row-gap: var(--spacing-xl);
             z-index: 1;
+
+            #video-forma {
+                position: absolute;
+                z-index: -3;
+                width: 200px;
+                height: 220px;
+                top: 85%;
+                left: 10%;
+                transform: rotate(-95deg);
+                mask-image: linear-gradient(
+                    to bottom,
+                    rgba(0, 0, 0, 1) 0%,
+                    rgba(0, 0, 0, 0) 100%
+                );
+                -webkit-mask-image: linear-gradient(
+                    to bottom,
+                    rgba(0, 0, 0, 1) 0%,
+                    rgba(0, 0, 0, 0) 100%
+                );
+
+                video {
+                    position: absolute;
+                    top: 0%;
+                    left: 100%;
+                    transform: translate(-40%, -30%);
+                    width: 1000px;
+                    object-fit: cover;
+                }
+            }
 
             p {
                 @include text-md-24;
@@ -215,7 +247,7 @@
     }
 
     .servicios {
-        padding: var(--spacing-2xl) 0;
+        padding: var(--spacing-6xl) 0;
         // height: 100%;
 
         .row {

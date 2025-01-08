@@ -21,14 +21,17 @@
     }
 
     section:not(.footer, .logos, .sticky) {
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
         background: var(--color-negro);
         z-index: 2;
         position: relative;
+
+        &.full {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
     }
 
     .container {

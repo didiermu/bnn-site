@@ -11,6 +11,23 @@
         object-fit: contain;
     }
 
+    #link-lang {
+        @include text-md-24;
+        text-decoration: none;
+        margin: 0 32px 0 auto;
+
+        &::first-letter {
+            letter-spacing: 10px;
+        }
+
+        @media (hover: hover) {
+            &:hover {
+                text-decoration: underline;
+                color: var(--color-primario-400);
+            }
+        }
+    }
+
     .col-12 {
         display: inline-flex;
         justify-content: space-between;

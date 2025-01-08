@@ -36,8 +36,8 @@
     h2 {
         @include text-xl-60;
         letter-spacing: calc(28px + 10 * ((100vw - 1280px) / 1920));
-
         @include font-primary-light;
+        text-transform: uppercase;
 
         span {
             @include font-primary-bold;
@@ -50,6 +50,7 @@
         width: max-content;
         position: relative;
         padding: 8px 8px 8px 20px;
+        text-transform: uppercase;
 
         &::before {
             content: "";

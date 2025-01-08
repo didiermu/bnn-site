@@ -84,7 +84,7 @@ const animacionRebote = (el, trigger, movimiento = 40, delay = 0) => {
 
     sections.forEach((section, index) => {
         gsap.fromTo(
-            section, // Cambiamos `el` por `section` para que sea específico a cada elemento
+            section,
             {
                 yPercent: movimiento,
                 opacity: 0,
@@ -96,7 +96,7 @@ const animacionRebote = (el, trigger, movimiento = 40, delay = 0) => {
                 ease: "bounce.out",
                 delay: delay,
                 scrollTrigger: {
-                    trigger: triggers[index], // Usamos el trigger correspondiente al índice
+                    trigger: triggers[index],
                     start: "-=100 center",
                     end: "+=200 center",
                     scrub: 5,
@@ -139,7 +139,6 @@ const reveal = (el, trigger, movimiento = 40, baseDelay = 0) => {
     });
 };
 
-// Llama a la función
 reveal(".servicios > *", ".servicios");
 reveal(".inmotion > *", ".inmotion");
 
