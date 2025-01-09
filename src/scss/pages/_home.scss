@@ -62,7 +62,7 @@
         #forma-2 {
             position: absolute;
             top: 140px;
-            z-index: 1;
+            z-index: -1;
             right: 0;
             width: 80%;
         }
@@ -70,7 +70,7 @@
         #forma-3 {
             position: absolute;
             top: 140px;
-            z-index: 1;
+            z-index: -1;
             left: 0;
             width: 100%;
         }
@@ -221,6 +221,8 @@
             flex-flow: row wrap;
             gap: 16px;
             justify-content: space-between;
+            width: min(650px, 100%);
+            justify-self: flex-end;
 
             h5 {
                 @include text-sm-18;
@@ -760,179 +762,147 @@
     }
 }
 
-// //	reset / base styles
+@media (width < 1280px) {
+    .home {
+        .momentos {
+            &.full {
+                height: auto;
+            }
 
-// * {
-//     box-sizing: border-box;
-//     padding: 0;
-//     margin: 0;
-//     font-family: helvetica, sans-serif;
-//     color: white;
-//     font-weight: normal;
-//     font-size: 20px;
-//     line-height: 1.3em;
-//     list-style-type: none;
-// }
+            &__title {
+                text-align: center;
+                place-items: center;
 
-// html,
-// body {
-//     background: #060606;
-// }
+                h2 {
+                    @include text-lg-30;
+                }
 
-// ////////////////////////////////////////////////////
-// //	stacking, sticking and pinning
+                h4 {
+                    @include text-sm-16;
+                }
+            }
 
-// .panels {
-//     overflow: scroll;
-//     // will kill scrollTrigger if scroller: ".panels" is not set
-//     // required for scroll-snap // dev remove on last panel for content after?
-//     height: 100vh;
-//     width: 100%;
-//     scroll-snap-type: y mandatory;
-// }
+            &__categoria {
+                top: 0;
+                position: relative;
+                @include text-sm-16;
+            }
 
-// .panel {
-//     box-shadow: 40px red;
-//     scroll-snap-align: start;
-//     width: 100%;
-//     height: 100vh;
-//     background: rgba(0, 0, 0, 0.25);
-//     display: flex;
-//     justify-content: center;
-//     background: #1d1e22;
+            &__imagen {
+                picture {
+                    transform: scale(1);
+                }
+            }
 
-//     &.active {
-//         // todo - hook
-//     }
-// }
+            &__info {
+                display: flex;
+                flex-direction: column;
 
-// .clip {
-//     position: sticky;
-//     height: 0;
-//     // background:red;
-//     width: 100%;
-//     top: 0;
-//     margin-bottom: 0;
-// }
+                p {
+                    @include text-sm-16;
+                    text-align: center;
+                    flex-direction: column;
+                    align-items: center;
+                    row-gap: var(--spacing-md);
+                }
 
-// ////////////////////////////////////////////////////
-// // ui
-// h2 {
-//     position: absolute;
-//     top: 0;
-//     margin: 0;
-//     padding: calc(100vh - 64px) 50px 0;
-//     z-index: 3;
-//     left: 0;
-// }
+                #video-forma {
+                    left: 20%;
+                }
+            }
 
-// .tint {
-//     // darken images/video a touch
-//     display: block;
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     background: rgba(0, 0, 0, 0.1);
-//     width: 100vw;
-//     height: 100vh;
-//     z-index: 2;
-//     pointer-events: none;
-// }
+            &__logos {
+                flex-direction: column;
+                justify-content: center;
+                row-gap: var(--spacing-lg);
+                padding-bottom: var(--spacing-2xl);
 
-// img {
-//     // border-top:1px solid red;
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     width: 100%;
-//     height: 100vh;
-//     object-fit: cover;
-//     object-position: center center;
-//     z-index: 1;
-// }
+                h5 {
+                    text-align: center;
+                    flex: auto;
+                }
 
-// .video_clip {
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     width: 100%;
-//     height: 100vh;
-//     z-index: 1;
-//     pointer-events: none;
-//     overflow: hidden;
-// }
+                picture {
+                    height: 46px;
+                }
+            }
+        }
 
-// iframe {
-//     z-index: 1;
-//     border: 0;
-//     width: 100vw;
-//     height: 56.25vw;
-//     min-height: 100%;
-//     min-width: 177.77vh;
-//     position: absolute;
-//     top: 50%;
-//     left: 50%;
-//     transform: translate(-50%, -50%);
-// }
+        .servicios {
+            padding: var(--spacing-2xl) 0;
 
-// a {
-//     color: white;
-//     text-decoration: none;
-//     cursor: pointer;
-//     transition: all ease .25s;
-// }
+            ul {
+                padding-top: var(--spacing-lg);
+                row-gap: var(--spacing-sm);
+                display: grid;
 
-// .controls {
-//     position: fixed;
-//     bottom: 40px;
-//     right: 40px;
-//     z-index: 2;
-//     font-size: 30px;
-//     font-family: courier, mono;
-//     // background:red;
-//     display: flex;
-//     flex-wrap: wrap;
+                li {
+                    font-size: 30px;
+                    letter-spacing: 10px;
+                    column-gap: var(--spacing-xs);
+                    margin: auto;
+                    padding: initial !important;
 
-//     a.disabled {
-//         opacity: 0.5;
-//         pointer-events: none;
-//     }
+                    &::before {
+                        @include text-xs-12;
+                        letter-spacing: 6px;
+                    }
 
-//     .down {
-//         //	background:blue;
-//     }
+                    &:after {
+                        width: 8px;
+                        height: 8px;
+                        margin-top: 10px;
+                    }
+                }
+            }
+        }
 
-//     a {
-//         display: block;
-//         width: 36px;
-//         height: 36px;
-//         line-height: 36px;
-//         border-radius: 36px;
-//         text-align: center;
-//         background: rgba(0, 0, 0, 0.0);
+        .inmotion {
+            padding: var(--spacing-2xl) 0;
 
-//         &:first-child {
-//             margin-right: -8px;
-//         }
-//     }
-// }
+            .slider {
+                &-wrapper {
+                    column-gap: var(--spacing-lg);
+                    padding-top: var(--spacing-xl);
+                }
 
-// span.note {
-//     position: fixed;
-//     bottom: 40px;
-//     right: calc(20px + 120px);
-//     z-index: 2;
-// }
+                &-slide {
+                    column-gap: var(--spacing-lg);
+                    min-width: 80vw;
 
-// //	todo: content after...
+                    figure {
+                        width: 280px;
+                    }
 
-// // .postwrap {
-// // 	display:none;
-// // 	padding:5%;
-// // 	position:relative;
-// // 	z-index:10;
-// // 	background:#1d1e22;
-// // 	p {
-// // 		padding-bottom:12px;
-// // 		}
-// // 	}
+                    video {
+                        height: auto;
+                        aspect-ratio: 1 / 1;
+
+                        &.play {
+                            filter: grayscale(0);
+                        }
+                    }
+
+                    &__info {
+                        flex: auto;
+                        text-align: center;
+
+                        h3 {
+                            @include text-lg-30;
+                        }
+                    }
+
+                    &__tags {
+                        margin: auto;
+                        column-gap: var(--spacing-sm);
+
+                        span {
+                            padding: var(--spacing-xs);
+                            @include text-xs-12;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

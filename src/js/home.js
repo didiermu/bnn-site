@@ -1,4 +1,3 @@
-// Asegúrate de incluir GSAP y ScrollTrigger
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import MotionPathPlugin from "gsap/MotionPathPlugin";
@@ -20,30 +19,39 @@ const mediaQueryDesktop = window.matchMedia("(max-width: 1279px)");
 
 ////////// PANELES
 
-gsap.registerPlugin(ScrollTrigger);
+const paneles = () => {
+    if (mediaQueryDesktop.matches) {
+        console.log("m");
+    } else {
+        // console.log("d");
+        const contents = gsap.utils.toArray(".momentos");
 
-const contents = gsap.utils.toArray(".momentos");
-
-contents.forEach((el, i) => {
-    ScrollTrigger.create({
-        trigger: el,
-        start: "top top",
-        end: "top bottom",
-        pin: true,
-        pinSpacing: false,
-        endTrigger: ".logos",
-        id: i + 1,
-        // markers: { indent: 150 * i },
-        onUpdate: (self) => {
-            const progress = self.progress;
-            gsap.to(el, {
-                scale: 1 - progress,
-                duration: 0.1,
-                overwrite: true,
+        contents.forEach((el, i) => {
+            ScrollTrigger.create({
+                trigger: el,
+                start: "top top",
+                end: "top bottom",
+                pin: true,
+                pinSpacing: false,
+                endTrigger: ".logos",
+                id: i + 1,
+                // markers: { indent: 150 * i },
+                onUpdate: (self) => {
+                    const progress = self.progress;
+                    gsap.to(el, {
+                        scale: 1 - progress,
+                        duration: 0.1,
+                        overwrite: true,
+                    });
+                },
             });
-        },
-    });
-});
+        });
+    }
+};
+// gsap.registerPlugin(ScrollTrigger);
+
+mediaQueryDesktop.addListener(paneles);
+paneles();
 
 ////// PARALLAX
 
@@ -286,6 +294,16 @@ const videoIn = () => {
     const videos = document.querySelectorAll(".inmotion video");
 
     videos.forEach((video) => {
+        const togglePlayPause = function () {
+            if (this.paused) {
+                this.play();
+                this.setAttribute("class", "play");
+            } else {
+                this.pause();
+                this.removeAttribute("class");
+            }
+        };
+
         const playVideo = function () {
             this.play();
         };
@@ -303,16 +321,19 @@ const videoIn = () => {
 
         const handleEnded = function () {
             this.removeAttribute("class");
-            stopVideo.call(this); // Llama a stopVideo cuando el video termina
+            stopVideo.call(this);
         };
 
         const manageVideoEventsLocales = () => {
             if (mediaQueryDesktop.matches) {
-                video.removeEventListener("mouseenter", playVideo);
-                video.removeEventListener("mouseenter", handlePlay);
-                video.removeEventListener("mouseleave", stopVideo);
-                video.removeEventListener("mouseleave", handleEnded);
+                // video.removeEventListener("mouseenter", playVideo);
+                // video.removeEventListener("mouseenter", handlePlay);
+                // video.removeEventListener("mouseleave", stopVideo);
+                // video.removeEventListener("mouseleave", handleEnded);
+                video.addEventListener("click", togglePlayPause);
+                // console.log("m");
             } else {
+                console.log("d");
                 video.addEventListener("mouseenter", playVideo);
                 video.addEventListener("mouseenter", handlePlay);
                 video.addEventListener("mouseleave", stopVideo);

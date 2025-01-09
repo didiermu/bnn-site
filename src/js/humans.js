@@ -1,8 +1,9 @@
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import ScrollToPlugin from "gsap/ScrollToPlugin";
 import lottie from "lottie-web";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 ////////// PANELES
 
@@ -106,8 +107,9 @@ paneles();
 const adn = () => {
     const container = document.querySelector(".adn");
     const imgAdn = document.querySelector("#img--adn");
-
-    ScrollTrigger.create({
+    const items = document.querySelectorAll(".adn__hover-item");
+    // Crear ScrollTrigger
+    const scrollTrigger = ScrollTrigger.create({
         trigger: ".adn",
         start: "top top",
         end: "bottom+=400 top",
@@ -119,7 +121,51 @@ const adn = () => {
 
         onUpdate: (self) => {
             const progress = self.progress;
+            let currentMoment = "";
 
+            // Determinar el momento actual basado en el progreso
+            if (progress === 0) {
+                currentMoment = "";
+                imgAdn.setAttribute("src", "img/circulos.png");
+            } else if (progress >= 0 && progress < 0.25) {
+                currentMoment = "moment-1";
+                imgAdn.setAttribute("src", "img/circulos-1.png");
+            } else if (progress >= 0.25 && progress < 0.5) {
+                currentMoment = "moment-2";
+                imgAdn.setAttribute("src", "img/circulos-2.png");
+            } else if (progress >= 0.5 && progress < 0.75) {
+                currentMoment = "moment-3";
+                imgAdn.setAttribute("src", "img/circulos-3.png");
+            } else if (progress >= 0.75 && progress <= 1) {
+                currentMoment = "moment-4";
+                imgAdn.setAttribute("src", "img/circulos-4.png");
+            }
+
+            // Si ya tiene la clase correcta, no hacer nada
+            if (!container.classList.contains(currentMoment)) {
+                // Remover todas las clases previas
+                container.classList.remove(
+                    "moment-1",
+                    "moment-2",
+                    "moment-3",
+                    "moment-4"
+                );
+
+                // Agregar la nueva clase si corresponde
+                if (currentMoment) {
+                    container.classList.add(currentMoment);
+                }
+            }
+        },
+    });
+
+    // Lógica de clic para actualizar el progreso
+    items.forEach((el) => {
+        el.addEventListener("click", () => {
+            let id = el.id;
+            let progress = 0;
+
+            // Remover clases previas
             container.classList.remove(
                 "moment-1",
                 "moment-2",
@@ -127,27 +173,101 @@ const adn = () => {
                 "moment-4"
             );
 
-            if (progress === 0) {
-                container.classList.remove("moment-1");
-                imgAdn.setAttribute("src", "img/circulos.png");
-            } else if (progress >= 0 && progress < 0.25) {
-                container.classList.add("moment-1");
-                imgAdn.setAttribute("src", "img/circulos-1.png");
-            } else if (progress >= 0.25 && progress < 0.5) {
-                container.classList.add("moment-2");
-                imgAdn.setAttribute("src", "img/circulos-2.png");
-            } else if (progress >= 0.5 && progress < 0.75) {
-                container.classList.add("moment-3");
-                imgAdn.setAttribute("src", "img/circulos-3.png");
-            } else if (progress >= 0.75 && progress <= 1) {
-                container.classList.add("moment-4");
-                imgAdn.setAttribute("src", "img/circulos-4.png");
+            // Determinar el progreso basado en el ID
+            switch (id) {
+                case "adn-hover1":
+                    progress = 0.25;
+                    container.classList.add("moment-1");
+                    imgAdn.setAttribute("src", "img/circulos-1.png");
+                    break;
+                case "adn-hover2":
+                    progress = 0.49;
+                    container.classList.add("moment-2");
+                    imgAdn.setAttribute("src", "img/circulos-2.png");
+                    break;
+                case "adn-hover3":
+                    progress = 0.74;
+                    container.classList.add("moment-3");
+                    imgAdn.setAttribute("src", "img/circulos-3.png");
+                    break;
+                case "adn-hover4":
+                    progress = 0.9;
+                    container.classList.add("moment-4");
+                    imgAdn.setAttribute("src", "img/circulos-4.png");
+                    break;
             }
-        },
+            const scrollPosition =
+                progress * (scrollTrigger.end - scrollTrigger.start) +
+                scrollTrigger.start;
+
+            gsap.to(window, {
+                scrollTo: { y: scrollPosition, autoKill: false },
+                duration: 0,
+                ease: "none",
+            });
+        });
     });
 };
 
 adn();
+
+const hoverAdn = () => {
+    const items = document.querySelectorAll(".adn__hover-item");
+    const container = document.querySelector(".adn");
+    const imgAdn = document.querySelector("#img--adn");
+
+    items.forEach((el) => {
+        el.addEventListener("click", () => {
+            let id = el.id;
+            switch (id) {
+                case "adn-hover1":
+                    container.classList.remove(
+                        "moment-1",
+                        "moment-2",
+                        "moment-3",
+                        "moment-4"
+                    );
+                    container.classList.add("moment-1");
+                    imgAdn.setAttribute("src", "img/circulos-1.png");
+                    break;
+                case "adn-hover2":
+                    container.classList.remove(
+                        "moment-1",
+                        "moment-2",
+                        "moment-3",
+                        "moment-4"
+                    );
+                    container.classList.add("moment-2");
+                    imgAdn.setAttribute("src", "img/circulos-2.png");
+
+                    break;
+                case "adn-hover3":
+                    container.classList.remove(
+                        "moment-1",
+                        "moment-2",
+                        "moment-3",
+                        "moment-4"
+                    );
+                    container.classList.add("moment-3");
+                    imgAdn.setAttribute("src", "img/circulos-3.png");
+                    break;
+
+                case "adn-hover4":
+                    container.classList.remove(
+                        "moment-1",
+                        "moment-2",
+                        "moment-3",
+                        "moment-4"
+                    );
+                    container.classList.add("moment-4");
+                    imgAdn.setAttribute("src", "img/circulos-4.png");
+                    break;
+            }
+        });
+    });
+};
+
+// hoverAdn();
 
 ////////// FADE
 

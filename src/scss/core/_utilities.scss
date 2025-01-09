@@ -70,3 +70,25 @@
         text-transform: uppercase;
     }
 }
+
+@media (width < 1280px) {
+    .sticky-banner {
+        .row {
+            padding: var(--spacing-sm);
+            border-radius: 0;
+        }
+
+        p {
+            @include text-sm-16;
+        }
+    }
+
+    .title-decorated {
+        text-align: center;
+        place-items: center;
+
+        h2 {
+            @include text-sm-16;
+        }
+    }
+}

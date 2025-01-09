@@ -5,6 +5,11 @@
     position: sticky;
     top: 0;
     z-index: 9;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 1) 35%,
+        rgba(0, 0, 0, 0) 100%
+    );
 
     &--logo {
         width: 110px;
@@ -113,6 +118,54 @@
 
                     &::after {
                         background-image: var(--icon-rombo-amarillo);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (width < 1280px) {
+    .header {
+        nav {
+            ul {
+                padding: 0 var(--spacing-lg);
+                row-gap: var(--spacing-lg);
+
+                li {
+                    column-gap: var(--spacing-xs);
+
+                    &::before {
+                        font-size: 16px;
+                        letter-spacing: 8px;
+                    }
+
+                    &::after {
+                        display: none;
+                        width: 16px;
+                        height: 16px;
+                        flex: 1 0 16px;
+                    }
+
+                    a span {
+                        font-size: 32px;
+                        letter-spacing: 12px;
+                        position: relative;
+
+                        &::after {
+                            content: "";
+                            width: 12px;
+                            height: 12px;
+                            flex: 1 0 12px;
+                            position: absolute;
+                            bottom: 10px;
+                            right: -20px;
+                            display: block;
+                            background: var(--icon-rombo) no-repeat center /
+                                contain;
+                            align-self: center;
+                            transition: 0.3s ease-in-out all;
+                        }
                     }
                 }
             }

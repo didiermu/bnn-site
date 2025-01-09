@@ -4,29 +4,14 @@
 }
 
 @mixin text-xl-60 {
-    // font-size: 3.75rem;
     font-size: calc(56px + 2 * ((100vw - 1920px) / 1280));
     line-height: normal;
 }
-
-// @mixin text-lg-48 {
-//     font-size: 3rem;
-// }
-
-// @mixin text-lg-44 {
-//     font-size: 2.75rem;
-//     line-height: 3rem;
-// }
 
 @mixin text-lg-40 {
     font-size: 2.5rem;
     line-height: 2.75rem;
 }
-
-// @mixin text-lg-36 {
-//     font-size: 2.25rem;
-//     line-height: 2.5rem;
-// }
 
 @mixin text-lg-30 {
     font-size: calc(30px + 6 * ((100vw - 1920px) / 1280));
@@ -43,11 +28,6 @@
     line-height: normal;
 }
 
-// @mixin text-md-22 {
-//     font-size: 1.375rem;
-//     line-height: 1.625rem;
-// }
-
 @mixin text-sm-18 {
     font-size: calc(18px + 2 * ((100vw - 1920px) / 1280));
     line-height: 1.6;
@@ -57,11 +37,6 @@
     font-size: 1rem;
     line-height: 1.5rem;
 }
-
-// @mixin text-sm-14 {
-//     font-size: 0.875rem;
-//     line-height: 1rem;
-// }
 
 @mixin text-xs-12 {
     font-size: 0.75rem;

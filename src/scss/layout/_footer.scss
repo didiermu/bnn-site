@@ -64,3 +64,38 @@
         }
     }
 }
+
+@media (width < 1280px) {
+    .footer {
+        padding-bottom: var(--spacing-lg);
+
+        .sticky-banner {
+            top: 0;
+            position: relative;
+
+            .container {
+                padding: 0;
+            }
+        }
+
+        h2 {
+            @include text-xl-60;
+        }
+
+        a {
+            @include text-md-24;
+
+            &::after {
+                width: 34px;
+                height: 34px;
+                background-size: 20px;
+            }
+        }
+
+        &--legales {
+            padding-top: var(--spacing-4xl);
+            flex-direction: column;
+            row-gap: var(--spacing-md);
+        }
+    }
+}

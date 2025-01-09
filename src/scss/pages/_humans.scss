@@ -108,9 +108,81 @@
             row-gap: var(--spacing-2xl);
         }
 
+        &__hover-item {
+            // border: 1px solid;
+            position: absolute;
+            width: max-content;
+            cursor: pointer;
+            @include text-md-24;
+            opacity: 0.3;
+            transition: 0.3s ease-in-out opacity;
+
+            &::before {
+                content: "";
+                display: block;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background-color: rgba(255, 255, 255, 0.3);
+                position: absolute;
+                bottom: -40px;
+                left: -20px;
+            }
+
+            &::after {
+                content: "";
+                display: block;
+                width: 15px;
+                height: 15px;
+                border-radius: 50%;
+                background-color: var(--color-primario-400);
+                position: absolute;
+                left: -7px;
+                top: 43px;
+            }
+
+            @media (hover: hover) {
+                &:hover {
+                    opacity: 1;
+                }
+            }
+
+            &#adn-hover1 {
+                right: 20%;
+                top: 15%;
+
+                &::before {
+                    top: -50px;
+                    left: 30px;
+                }
+                &::after {
+                    top: -38px;
+                    left: 43px;
+                }
+            }
+
+            &#adn-hover2 {
+                left: 45%;
+                top: 44%;
+            }
+            &#adn-hover3 {
+                top: 55%;
+                left: 35%;
+            }
+            &#adn-hover4 {
+                bottom: 30%;
+                left: 25%;
+            }
+        }
+
         &.moment-1 {
             .adn__item:nth-child(1) {
                 opacity: 1;
+            }
+
+            .adn__hover-item:nth-child(1) {
+                opacity: 1;
+                color: var(--color-negro);
             }
         }
 
@@ -118,17 +190,30 @@
             .adn__item:nth-child(2) {
                 opacity: 1;
             }
+
+            .adn__hover-item:nth-child(2) {
+                opacity: 1;
+                color: var(--color-negro);
+            }
         }
 
         &.moment-3 {
             .adn__item:nth-child(3) {
                 opacity: 1;
             }
+            .adn__hover-item:nth-child(3) {
+                opacity: 1;
+                color: var(--color-negro);
+            }
         }
 
         &.moment-4 {
             .adn__item:nth-child(4) {
                 opacity: 1;
+            }
+            .adn__hover-item:nth-child(4) {
+                opacity: 1;
+                color: var(--color-negro);
             }
         }
 
