@@ -276,7 +276,8 @@
                 color: var(--color-primario-400);
                 width: max-content;
                 transition: 0.3s ease-in-out all;
-                cursor: pointer;
+                // cursor: pointer;
+                pointer-events: none;
 
                 &:nth-child(odd) {
                     justify-self: center;
@@ -691,6 +692,16 @@
                 justify-content: space-between;
                 position: relative;
 
+                &.play {
+                    video {
+                        filter: grayscale(0);
+                    }
+
+                    &::after {
+                        background-image: var(--icon-pause);
+                    }
+                }
+
                 &::after {
                     content: "";
                     cursor: pointer;
@@ -837,9 +848,9 @@
                 display: grid;
 
                 li {
-                    font-size: 30px;
+                    font-size: 26px;
                     letter-spacing: 10px;
-                    column-gap: var(--spacing-xs);
+                    column-gap: 4px;
                     margin: auto;
                     padding: initial !important;
 
@@ -857,6 +868,17 @@
             }
         }
 
+        .logos {
+            &--video-container {
+                overflow: hidden;
+
+                video {
+                    padding: var(--spacing-2xl) 0;
+                    transform: scale(3);
+                }
+            }
+        }
+
         .inmotion {
             padding: var(--spacing-2xl) 0;
 
@@ -869,6 +891,10 @@
                 &-slide {
                     column-gap: var(--spacing-lg);
                     min-width: 80vw;
+
+                    &:last-child {
+                        margin-right: 44px;
+                    }
 
                     figure {
                         width: 280px;

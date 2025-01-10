@@ -7,7 +7,7 @@
     z-index: 9;
     background: linear-gradient(
         to bottom,
-        rgba(0, 0, 0, 1) 35%,
+        rgba(12, 14, 21, 35%),
         rgba(0, 0, 0, 0) 100%
     );
 
@@ -77,6 +77,7 @@
             place-content: center;
             height: 100vh;
             counter-reset: menu;
+            row-gap: var(--spacing-lg);
 
             li {
                 counter-increment: section;
@@ -127,10 +128,23 @@
 
 @media (width < 1280px) {
     .header {
+        height: 72px;
+
+        &--logo {
+            width: 80px;
+        }
+
+        button {
+            width: 40px;
+            height: 40px;
+            background-size: 40px;
+        }
+
         nav {
             ul {
                 padding: 0 var(--spacing-lg);
                 row-gap: var(--spacing-lg);
+                place-items: flex-start;
 
                 li {
                     column-gap: var(--spacing-xs);

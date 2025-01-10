@@ -21,7 +21,7 @@ const mediaQueryDesktop = window.matchMedia("(max-width: 1279px)");
 
 const paneles = () => {
     if (mediaQueryDesktop.matches) {
-        console.log("m");
+        // console.log("m");
     } else {
         // console.log("d");
         const contents = gsap.utils.toArray(".momentos");
@@ -48,7 +48,6 @@ const paneles = () => {
         });
     }
 };
-// gsap.registerPlugin(ScrollTrigger);
 
 mediaQueryDesktop.addListener(paneles);
 paneles();
@@ -297,10 +296,10 @@ const videoIn = () => {
         const togglePlayPause = function () {
             if (this.paused) {
                 this.play();
-                this.setAttribute("class", "play");
+                this.closest("figure").setAttribute("class", "play");
             } else {
                 this.pause();
-                this.removeAttribute("class");
+                this.closest("figure").removeAttribute("class");
             }
         };
 
@@ -324,28 +323,30 @@ const videoIn = () => {
             stopVideo.call(this);
         };
 
-        const manageVideoEventsLocales = () => {
-            if (mediaQueryDesktop.matches) {
-                // video.removeEventListener("mouseenter", playVideo);
-                // video.removeEventListener("mouseenter", handlePlay);
-                // video.removeEventListener("mouseleave", stopVideo);
-                // video.removeEventListener("mouseleave", handleEnded);
-                video.addEventListener("click", togglePlayPause);
-                // console.log("m");
-            } else {
-                console.log("d");
-                video.addEventListener("mouseenter", playVideo);
-                video.addEventListener("mouseenter", handlePlay);
-                video.addEventListener("mouseleave", stopVideo);
-                video.addEventListener("mouseleave", handleEnded);
-            }
+        video.addEventListener("click", togglePlayPause);
 
-            video.addEventListener("play", handlePlay);
-            video.addEventListener("ended", handleEnded);
-        };
+        //         const manageVideoEventsLocales = () => {
+        //             if (mediaQueryDesktop.matches) {
+        //                 // video.removeEventListener("mouseenter", playVideo);
+        //                 // video.removeEventListener("mouseenter", handlePlay);
+        //                 // video.removeEventListener("mouseleave", stopVideo);
+        //                 // video.removeEventListener("mouseleave", handleEnded);
+        //                 video.addEventListener("click", togglePlayPause);
+        //                 // console.log("m");
+        //             } else {
+        //                 console.log("d");
+        //                 video.addEventListener("mouseenter", playVideo);
+        //                 video.addEventListener("mouseenter", handlePlay);
+        //                 video.addEventListener("mouseleave", stopVideo);
+        //                 video.addEventListener("mouseleave", handleEnded);
+        //             }
+        //
+        //             video.addEventListener("play", handlePlay);
+        //             video.addEventListener("ended", handleEnded);
+        //         };
 
-        manageVideoEventsLocales();
-        mediaQueryDesktop.addListener(manageVideoEventsLocales);
+        // manageVideoEventsLocales();
+        // mediaQueryDesktop.addListener(manageVideoEventsLocales);
     });
 };
 
@@ -395,3 +396,5 @@ function getBgPos(i) {
         "px 0px"
     );
 }
+
+/////// MODAL SERVICIOS
