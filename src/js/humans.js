@@ -329,8 +329,19 @@ const adn = () => {
 // mediaQueryDesktop.addEventListener("change", adn);
 adn();
 
-window.addEventListener("resize", () => {
-    // ScrollTrigger.refresh();
+// window.addEventListener("resize", () => {
+//     // ScrollTrigger.refresh();
+//
+//     setTimeout(() => {
+//         revealX(".adn .title-decorated", ".adn");
+//         revealY(".adn .row .row > *", ".adn");
+//         revealY(".team .title-decorated", ".team");
+//         revealY(".team .team--layout", ".team", undefined, 3);
+//     }, 1000);
+// });
+
+mediaQueryDesktop.addEventListener("change", () => {
+    // alert("m");
     setTimeout(() => {
         revealX(".adn .title-decorated", ".adn");
         revealY(".adn .row .row > *", ".adn");
@@ -341,6 +352,7 @@ window.addEventListener("resize", () => {
 
 window.addEventListener("load", () => {
     // ScrollTrigger.refresh();
+
     setTimeout(() => {
         revealX(".adn .title-decorated", ".adn");
         revealY(".adn .row .row > *", ".adn");
