@@ -87,6 +87,7 @@
             border: 1px solid #fff;
             background: rgba(45, 45, 45, 0.3);
             backdrop-filter: blur(7.5px);
+            -webkit-backdrop-filter: blur(7.5px);
             padding: 8px 20px;
             display: inline-flex;
             align-items: center;
@@ -458,6 +459,7 @@
             &__menu {
                 border: 1px solid rgba(255, 255, 255, 0.3);
                 backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
                 background: linear-gradient(
                     0deg,
                     rgba(45, 45, 45, 0.6) -48.44%,
@@ -781,7 +783,7 @@
     }
 }
 
-@media (width < 1280px) {
+@media (max-width: 1280px) {
     .home {
         .momentos {
             &.full {

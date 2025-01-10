@@ -66,6 +66,7 @@
         left: 0;
         width: 100vw;
         backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
         background: rgba(45, 45, 45, 0.3);
         z-index: 3;
 
@@ -111,14 +112,16 @@
                     transition: 0.3s ease-in-out all;
                 }
 
-                &:hover {
-                    span {
-                        @include text-xxl-80;
-                        @include font-primary-bold;
-                    }
+                @media (hover: hover) {
+                    &:hover {
+                        span {
+                            @include text-xxl-80;
+                            @include font-primary-bold;
+                        }
 
-                    &::after {
-                        background-image: var(--icon-rombo-amarillo);
+                        &::after {
+                            background-image: var(--icon-rombo-amarillo);
+                        }
                     }
                 }
             }
@@ -126,7 +129,7 @@
     }
 }
 
-@media (width < 1280px) {
+@media (max-width: 1280px) {
     .header {
         height: 72px;
 

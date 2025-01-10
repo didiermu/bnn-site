@@ -323,14 +323,14 @@ const adn = () => {
         });
     });
 
-    ScrollTrigger.refresh();
+    // ScrollTrigger.refresh();
 };
 
-mediaQueryDesktop.addEventListener("change", adn);
+// mediaQueryDesktop.addEventListener("change", adn);
 adn();
 
 window.addEventListener("resize", () => {
-    ScrollTrigger.refresh();
+    // ScrollTrigger.refresh();
     setTimeout(() => {
         revealX(".adn .title-decorated", ".adn");
         revealY(".adn .row .row > *", ".adn");
@@ -340,7 +340,7 @@ window.addEventListener("resize", () => {
 });
 
 window.addEventListener("load", () => {
-    ScrollTrigger.refresh();
+    // ScrollTrigger.refresh();
     setTimeout(() => {
         revealX(".adn .title-decorated", ".adn");
         revealY(".adn .row .row > *", ".adn");

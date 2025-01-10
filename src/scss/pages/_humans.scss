@@ -57,6 +57,7 @@
                 padding: var(--spacing-2xl) var(--spacing-3xl);
                 border: 1px solid rgba(255, 255, 255, 0.3);
                 backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
                 border-radius: 20px;
                 background: linear-gradient(
                     0deg,
@@ -311,6 +312,7 @@
                 border-radius: 20px;
                 background: rgba(45, 45, 45, 0.3);
                 backdrop-filter: blur(7.5px);
+                -webkit-backdrop-filter: blur(10px);
                 overflow: hidden;
 
                 &:nth-child(1) {
@@ -365,7 +367,7 @@
     }
 }
 
-@media (width < 1280px) {
+@media (max-width: 1280px) {
     .humans {
         .historia {
             .content-box {
