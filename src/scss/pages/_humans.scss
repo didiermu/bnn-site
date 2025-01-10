@@ -26,6 +26,8 @@
             flex-direction: column;
             justify-content: center;
             padding: 0 80px;
+            max-width: 1800px;
+            margin: auto;
 
             &#heading1 {
                 opacity: 1;
@@ -108,6 +110,10 @@
             row-gap: var(--spacing-2xl);
         }
 
+        .col-lg-6 {
+            position: relative;
+        }
+
         &__hover-item {
             // border: 1px solid;
             position: absolute;
@@ -120,7 +126,7 @@
             span {
                 display: block;
                 position: absolute;
-                top: 20px;
+                top: 10px;
                 left: -30px;
 
                 &::before {
@@ -155,8 +161,8 @@
             }
 
             &#adn-hover1 {
-                right: 20%;
-                top: 15%;
+                right: calc(110px + 80 * (100vw - 1280px) / 1440);
+                top: calc(105px + 100 * (100vw - 1280px) / 1440);
 
                 span {
                     top: 0;
@@ -174,16 +180,16 @@
             }
 
             &#adn-hover2 {
-                left: 49%;
-                top: 44%;
+                left: calc(260px + 290 * (100vw - 1280px) / 1440);
+                top: calc(300px + 440 * (100vw - 1280px) / 1440);
             }
             &#adn-hover3 {
-                top: 56%;
-                left: 38%;
+                top: calc(370px + 590 * (100vw - 1280px) / 1440);
+                left: calc(190px + 280 * (100vw - 1280px) / 1440);
             }
             &#adn-hover4 {
-                bottom: 29%;
-                left: 29%;
+                bottom: calc(370px - 2020 * (100vw - 1280px) / 1440);
+                left: calc(125px + 290 * (100vw - 1280px) / 1440);
             }
         }
 
@@ -248,9 +254,12 @@
             border-radius: 20px;
             opacity: 0.3;
             transition: 0.3s ease-in-out;
+            row-gap: var(--spacing-xs);
+            display: grid;
+            place-content: flex-start;
 
             h4 {
-                @include text-md-24;
+                font-size: 24px;
                 @include font-primary-bold;
                 display: flex;
                 align-items: center;
@@ -267,7 +276,7 @@
             }
 
             p {
-                @include text-sm-16;
+                font-size: 18px;
                 @include font-primary-light;
                 padding-left: var(--spacing-md);
             }
@@ -283,6 +292,8 @@
             align-items: center;
 
             p {
+                font-size: 20px;
+                letter-spacing: 1px;
                 text-align: center;
                 @include font-primary-light;
             }
@@ -366,15 +377,18 @@
                 inset: 0;
                 margin: auto;
                 transform: scale(1.3);
+                top: -70px;
             }
 
             .heading {
                 padding: 0 var(--spacing-lg);
+                top: 200px;
             }
 
             &__panel {
                 &__item {
                     align-self: center !important;
+                    padding: var(--spacing-lg);
                 }
             }
         }
@@ -490,6 +504,12 @@
 
         .team {
             padding-top: var(--spacing-lg);
+
+            .title-decorated {
+                p {
+                    font-size: 16px;
+                }
+            }
 
             &--layout {
                 // grid-template-columns: auto;

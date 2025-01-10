@@ -59,8 +59,19 @@
         padding-top: 120px;
 
         h6 {
-            @include text-xs-12;
+            font-size: 14px;
             @include font-primary-light;
+            flex-basis: 30%;
+            text-align: center;
+
+            &:last-child {
+                text-align: right;
+            }
+        }
+
+        picture {
+            display: block;
+            flex-basis: 30%;
         }
     }
 }

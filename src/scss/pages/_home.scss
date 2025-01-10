@@ -39,6 +39,10 @@
         .row {
             flex-direction: row-reverse;
 
+            .momentos__title {
+                align-items: flex-start;
+            }
+
             .momentos__info {
                 text-align: justify;
 
@@ -188,8 +192,8 @@
             h2 {
                 @include text-xl-60;
                 letter-spacing: calc(28px + 10 * ((100vw - 1280px) / 1920));
-
                 @include font-primary-light;
+                text-transform: uppercase;
 
                 span {
                     @include font-primary-bold;
@@ -202,7 +206,7 @@
                 width: max-content;
                 position: relative;
                 padding: 8px 8px 8px 20px;
-
+                text-transform: uppercase;
                 &::before {
                     content: "";
                     background: var(--color-primario-400);
@@ -277,6 +281,7 @@
                 width: max-content;
                 transition: 0.3s ease-in-out all;
                 // cursor: pointer;
+                text-transform: uppercase;
                 pointer-events: none;
 
                 &:nth-child(odd) {
@@ -687,7 +692,7 @@
             figure {
                 display: flex;
                 flex-flow: row wrap;
-                gap: 20px 12px;
+                gap: 20px 8px;
                 width: 380px;
                 justify-content: space-between;
                 position: relative;
@@ -741,15 +746,17 @@
             }
 
             &__info {
-                flex: 0 0 50%;
+                flex: 0 0 44%;
+                display: grid;
+                row-gap: var(--spacing-xs);
 
                 h4 {
-                    @include text-sm-16;
+                    font-size: 16px;
                     @include font-primary-light;
                 }
 
                 h3 {
-                    @include text-md-24;
+                    font-size: 24px;
                     @include font-primary-regular;
                 }
             }
@@ -764,7 +771,8 @@
                 span {
                     border-radius: 20px;
                     border: 1px solid var(--color-blanco);
-                    @include text-xs-10;
+                    font-size: 11px;
+                    letter-spacing: 2px;
                     @include font-primary-light;
                     padding: 4px 8px;
                 }
@@ -808,6 +816,7 @@
             &__info {
                 display: flex;
                 flex-direction: column;
+                padding-top: var(--spacing-lg);
 
                 p {
                     @include text-sm-16;

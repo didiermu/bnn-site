@@ -8,9 +8,26 @@ export default {
         outDir: path.resolve(__dirname, "dist"),
         rollupOptions: {
             input: {
-                index: path.resolve(__dirname, "src/index.html"),
-                header: path.resolve(__dirname, "src/templates/header.html"),
-                footer: path.resolve(__dirname, "src/templates/footer.html"),
+                indexEs: path.resolve(__dirname, "src/es/index.html"),
+                indexEn: path.resolve(__dirname, "src/en/index.html"),
+                humansEs: path.resolve(__dirname, "src/es/humans.html"),
+                humansEn: path.resolve(__dirname, "src/en/humans.html"),
+                headerEs: path.resolve(
+                    __dirname,
+                    "src/es/templates/header.html"
+                ),
+                headerEn: path.resolve(
+                    __dirname,
+                    "src/en/templates/header.html"
+                ),
+                footerEs: path.resolve(
+                    __dirname,
+                    "src/es/templates/footer.html"
+                ),
+                footerEn: path.resolve(
+                    __dirname,
+                    "src/en/templates/footer.html"
+                ),
             },
             output: {
                 chunkFileNames: "js/[name]-[hash].js",
