@@ -240,6 +240,16 @@ const enabledSwiperServicios = () => {
             }
         }
     });
+
+    const linksModal = document.querySelectorAll(".servicios ul li");
+
+    linksModal.forEach((element) => {
+        element.addEventListener("click", () => {
+            let dataSlide = element.dataset.slide;
+
+            swiperServicios.slideTo(dataSlide);
+        });
+    });
 };
 
 enabledSwiperServicios();

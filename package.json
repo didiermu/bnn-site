@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite --host",
     "build": "vite build --emptyOutDir",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "webp": "webpify --src public/img/ --dest public/img/"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.15",
@@ -21,6 +22,7 @@
     "bootstrap": "^5.3.1",
     "gsap": "^3.12.5",
     "lottie-web": "^5.12.2",
-    "swiper": "^11.2.0"
+    "swiper": "^11.2.0",
+    "webpify": "^1.0.3"
   }
 }
