@@ -20,134 +20,159 @@ const mediaQueryDesktop = window.matchMedia("(max-width: 1279px)");
 ////////// PANELES
 
 const paneles = () => {
-    if (mediaQueryDesktop.matches) {
-        // console.log("m");
-    } else {
-        // console.log("d");
-        const contents = gsap.utils.toArray(".momentos");
+    return new Promise((resolve) => {
+        const updateScrollTriggers = async () => {
+            const contents = gsap.utils.toArray(".momentos");
 
-        contents.forEach((el, i) => {
-            ScrollTrigger.create({
-                trigger: el,
-                start: "top top",
-                end: "top bottom",
-                pin: true,
-                pinSpacing: false,
-                endTrigger: ".logos",
-                id: i + 1,
-                // markers: { indent: 150 * i },
-                onUpdate: (self) => {
-                    const progress = self.progress;
-                    gsap.to(el, {
-                        scale: 1 - progress,
-                        duration: 0.1,
-                        overwrite: true,
+            if (!mediaQueryDesktop.matches) {
+                contents.forEach((el, i) => {
+                    ScrollTrigger.create({
+                        trigger: el,
+                        start: "top top",
+                        end: "top bottom",
+                        pin: true,
+                        pinSpacing: false,
+                        endTrigger: ".logos",
+                        id: i + 1,
+                        markers: false,
+                        onUpdate: (self) => {
+                            const progress = self.progress;
+                            gsap.to(el, {
+                                scale: 1 - progress,
+                                duration: 0.1,
+                                overwrite: true,
+                            });
+                        },
                     });
-                },
-            });
-        });
-    }
-};
+                });
 
-mediaQueryDesktop.addListener(paneles);
-paneles();
+                ScrollTrigger.refresh();
+                // console.log("ScrollTrigger  desktop");
+            } else {
+                ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+                contents.forEach((el) => el.removeAttribute("style"));
+                // console.log(
+                //     "ScrollTrigger deshabilitado"
+                // );
+            }
+
+            await parallax(".momentos__info", ".momentos");
+            await reveal(".servicios > *", ".servicios");
+            await reveal(".inmotion > *", ".inmotion");
+        };
+
+        updateScrollTriggers();
+
+        mediaQueryDesktop.addEventListener("change", async () => {
+            await updateScrollTriggers();
+        });
+
+        resolve();
+    });
+};
 
 ////// PARALLAX
 
 const parallax = (el, trigger, movimiento = 40, delay = 0) => {
-    var sections = gsap.utils.toArray(el);
-    var triggers = gsap.utils.toArray(trigger);
+    return new Promise((resolve) => {
+        const sections = gsap.utils.toArray(el);
+        const triggers = gsap.utils.toArray(trigger);
 
-    sections.forEach((section, index) => {
-        gsap.fromTo(
-            section,
-            {
-                yPercent: movimiento,
-                opacity: 0,
-            },
-            {
-                yPercent: 0,
-                opacity: 1,
-                duration: 0.5,
-                ease: "none",
-                delay: delay,
-                scrollTrigger: {
-                    trigger: triggers[index],
-                    end: "+=500 center",
-                    scrub: 1,
-                    toggleActions: "restart pause reverse pause",
-                    // markers: true,
+        sections.forEach((section, index) => {
+            gsap.fromTo(
+                section,
+                {
+                    yPercent: movimiento,
+                    opacity: 0,
                 },
-            }
-        );
+                {
+                    yPercent: 0,
+                    opacity: 1,
+                    duration: 0.5,
+                    ease: "none",
+                    delay: delay,
+                    scrollTrigger: {
+                        trigger: triggers[index],
+                        end: "+=500 center",
+                        scrub: 1,
+                        toggleActions: "restart pause reverse pause",
+                        markers: false,
+                    },
+                }
+            );
+        });
+
+        // console.log("Parallax configurado");
+        resolve();
     });
 };
-
-parallax(".momentos__info", ".momentos");
 
 const animacionRebote = (el, trigger, movimiento = 40, delay = 0) => {
-    var sections = gsap.utils.toArray(el);
-    var triggers = gsap.utils.toArray(trigger);
+    return new Promise((resolve) => {
+        var sections = gsap.utils.toArray(el);
+        var triggers = gsap.utils.toArray(trigger);
 
-    sections.forEach((section, index) => {
-        gsap.fromTo(
-            section,
-            {
-                yPercent: movimiento,
-                opacity: 0,
-            },
-            {
-                yPercent: 0,
-                opacity: 1,
-                duration: 0.5,
-                ease: "bounce.out",
-                delay: delay,
-                scrollTrigger: {
-                    trigger: triggers[index],
-                    start: "-=100 center",
-                    end: "+=200 center",
-                    scrub: 5,
-                    toggleActions: "restart pause reverse pause",
-                    // markers: true,
+        sections.forEach((section, index) => {
+            gsap.fromTo(
+                section,
+                {
+                    yPercent: movimiento,
+                    opacity: 0,
                 },
-            }
-        );
+                {
+                    yPercent: 0,
+                    opacity: 1,
+                    duration: 0.5,
+                    ease: "bounce.out",
+                    delay: delay,
+                    scrollTrigger: {
+                        trigger: triggers[index],
+                        start: "-=100 center",
+                        end: "+=200 center",
+                        scrub: 5,
+                        toggleActions: "restart pause reverse pause",
+                        // markers: true,
+                    },
+                }
+            );
+        });
+        // console.log("rebote completada");
+        resolve();
     });
 };
-
-animacionRebote(".momentos__categoria", ".momentos", -400);
 
 const reveal = (el, trigger, movimiento = 40, baseDelay = 0) => {
-    var sections = gsap.utils.toArray(el);
+    return new Promise((resolve) => {
+        var sections = gsap.utils.toArray(el);
 
-    sections.forEach((section, index) => {
-        gsap.fromTo(
-            section,
-            {
-                yPercent: movimiento,
-                opacity: 0,
-            },
-            {
-                yPercent: 0,
-                opacity: 1,
-                duration: 0.5,
-                ease: "none",
-                delay: baseDelay,
-                scrollTrigger: {
-                    trigger: trigger,
-                    start: "-=200 center",
-                    end: "center center",
-                    scrub: 1,
-                    toggleActions: "restart pause reverse pause",
-                    // markers: true,
+        sections.forEach((section, index) => {
+            gsap.fromTo(
+                section,
+                {
+                    yPercent: movimiento,
+                    opacity: 0,
                 },
-            }
-        );
+                {
+                    yPercent: 0,
+                    opacity: 1,
+                    duration: 0.5,
+                    ease: "none",
+                    delay: baseDelay,
+                    scrollTrigger: {
+                        trigger: trigger,
+                        start: "-=200 center",
+                        end: "center center",
+                        scrub: 1,
+                        toggleActions: "restart pause reverse pause",
+                        markers: false,
+                    },
+                }
+            );
+        });
+        // console.log("reveal completada");
+        resolve();
     });
 };
-
-reveal(".servicios > *", ".servicios");
-reveal(".inmotion > *", ".inmotion");
 
 //// LOGOS
 
@@ -185,74 +210,96 @@ var swiper = new Swiper(".swiper-logos", swiperOptions);
 let swiperServicios;
 
 const enabledSwiperServicios = () => {
-    const bulletTexts = [
-        "Creatividad",
-        "BI & Data",
-        "Desarrollo",
-        "Medios",
-        "Producción",
-        "Social Media",
-    ];
+    return new Promise((resolve) => {
+        const bulletTexts = [
+            "Creatividad",
+            "BI & Data",
+            "Desarrollo",
+            "Medios",
+            "Producción",
+            "Social Media",
+        ];
 
-    swiperServicios = new Swiper(".swiper-servicios", {
-        modules: [Navigation, Pagination],
-        direction: "vertical",
-        slidesPerView: "auto",
-        allowTouchMove: false,
-        navigation: {
-            prevEl: ".swiper-navigation-servicios .swiper-button-prev",
-            nextEl: ".swiper-navigation-servicios .swiper-button-next",
-        },
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-            type: "bullets",
-            renderBullet: (index, className) => {
-                return `<div class="${className}"><h5>
+        swiperServicios = new Swiper(".swiper-servicios", {
+            modules: [Navigation, Pagination],
+            direction: "vertical",
+            slidesPerView: "auto",
+            allowTouchMove: false,
+            navigation: {
+                prevEl: ".swiper-navigation-servicios .swiper-button-prev",
+                nextEl: ".swiper-navigation-servicios .swiper-button-next",
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+                type: "bullets",
+                renderBullet: (index, className) => {
+                    return `<div class="${className}"><h5>
                     ${bulletTexts[index]}
                 </h5></div>`;
+                },
             },
-        },
-    });
+        });
 
-    swiperServicios.on("slideChange", () => {
-        // Obtén el índice activo del slider
-        const activeIndex = swiperServicios.activeIndex;
+        swiperServicios.on("slideChange", () => {
+            const activeIndex = swiperServicios.activeIndex;
 
-        // Contenedor del scroll (la paginación)
-        const scrollContainer = document.querySelector(
-            "#modal-servicios .swiper-pagination"
-        );
-
-        if (scrollContainer) {
-            // Obtén el bullet activo basado en el índice activo
-            const activeBullet = scrollContainer.querySelector(
-                `.swiper-pagination-bullet:nth-child(${activeIndex + 1})`
+            const scrollContainer = document.querySelector(
+                "#modal-servicios .swiper-pagination"
             );
 
-            if (activeBullet) {
-                // Asegúrate de que el bullet activo sea visible
-                activeBullet.scrollIntoView({
-                    behavior: "smooth",
-                    block: "nearest",
-                    inline: "center", // Centrar horizontalmente
-                });
+            if (scrollContainer) {
+                const activeBullet = scrollContainer.querySelector(
+                    `.swiper-pagination-bullet:nth-child(${activeIndex + 1})`
+                );
+
+                if (activeBullet) {
+                    activeBullet.scrollIntoView({
+                        behavior: "smooth",
+                        block: "nearest",
+                        inline: "center",
+                    });
+                }
             }
-        }
-    });
-
-    const linksModal = document.querySelectorAll(".servicios ul li");
-
-    linksModal.forEach((element) => {
-        element.addEventListener("click", () => {
-            let dataSlide = element.dataset.slide;
-
-            swiperServicios.slideTo(dataSlide);
         });
+
+        const linksModal = document.querySelectorAll(".servicios ul li");
+        const modalServicios = document.querySelector("#modal-servicios");
+
+        linksModal.forEach((element) => {
+            element.addEventListener("click", () => {
+                let dataSlide = element.dataset.slide;
+
+                swiperServicios.slideTo(dataSlide);
+            });
+        });
+
+        modalServicios.addEventListener("shown.bs.modal", (event) => {
+            const activeIndex = swiperServicios.activeIndex;
+
+            const scrollContainer = document.querySelector(
+                "#modal-servicios .swiper-pagination"
+            );
+
+            if (scrollContainer) {
+                const activeBullet = scrollContainer.querySelector(
+                    `.swiper-pagination-bullet:nth-child(${activeIndex + 1})`
+                );
+
+                if (activeBullet) {
+                    activeBullet.scrollIntoView({
+                        behavior: "smooth",
+                        block: "nearest",
+                        inline: "center",
+                    });
+                }
+            }
+        });
+
+        // console.log("swioer servicios completada");
+        resolve();
     });
 };
-
-enabledSwiperServicios();
 
 ///////// MARQUESINA
 const marquee = document.getElementById("marquee");
@@ -277,90 +324,71 @@ function startMarquee() {
     const contentWidth = marquee.offsetWidth;
 
     gsap.to(".marquee-content", {
-        x: -contentWidth / 2, // Desplaza solo la mitad del contenido duplicado
-        duration: 20, // Duración ajustable
-        ease: "linear", // Movimiento constante
-        repeat: -1, // Repetición infinita
+        x: -contentWidth / 2,
+        duration: 20,
+        ease: "linear",
+        repeat: -1,
         modifiers: {
-            x: gsap.utils.unitize((x) => parseFloat(x) % contentWidth), // Reinicia el ciclo suavemente
+            x: gsap.utils.unitize((x) => parseFloat(x) % contentWidth),
         },
     });
 }
 
 function setupMarquee() {
-    adjustContent(); // Duplica el contenido según el tamaño
-    gsap.killTweensOf(".marquee-content"); // Elimina cualquier animación previa
-    startMarquee(); // Inicia la animación
+    return new Promise((resolve) => {
+        adjustContent();
+        gsap.killTweensOf(".marquee-content");
+        startMarquee();
+        // console.log("marquesina completada");
+        resolve();
+    });
 }
-
-setupMarquee();
-
-window.addEventListener("resize", setupMarquee);
 
 // VIDEOS IN MOTION
 
 const videoIn = () => {
-    const videos = document.querySelectorAll(".inmotion video");
+    return new Promise((resolve) => {
+        const videos = document.querySelectorAll(".inmotion video");
 
-    videos.forEach((video) => {
-        const togglePlayPause = function () {
-            if (this.paused) {
+        videos.forEach((video) => {
+            const togglePlayPause = function () {
+                if (this.paused) {
+                    this.play();
+                    this.closest("figure").setAttribute("class", "play");
+                } else {
+                    this.pause();
+                    this.closest("figure").removeAttribute("class");
+                }
+            };
+
+            const playVideo = function () {
                 this.play();
-                this.closest("figure").setAttribute("class", "play");
-            } else {
+            };
+
+            const stopVideo = function () {
                 this.pause();
-                this.closest("figure").removeAttribute("class");
-            }
-        };
+                this.currentTime = 0;
+                this.load();
+                this.removeAttribute("controls");
+            };
 
-        const playVideo = function () {
-            this.play();
-        };
+            const handlePlay = function () {
+                this.setAttribute("class", "play");
+            };
 
-        const stopVideo = function () {
-            this.pause();
-            this.currentTime = 0;
-            this.load();
-            this.removeAttribute("controls");
-        };
+            const handleEnded = function () {
+                this.removeAttribute("class");
+                stopVideo.call(this);
+            };
 
-        const handlePlay = function () {
-            this.setAttribute("class", "play");
-        };
-
-        const handleEnded = function () {
-            this.removeAttribute("class");
-            stopVideo.call(this);
-        };
-
-        video.addEventListener("click", togglePlayPause);
-
-        //         const manageVideoEventsLocales = () => {
-        //             if (mediaQueryDesktop.matches) {
-        //                 // video.removeEventListener("mouseenter", playVideo);
-        //                 // video.removeEventListener("mouseenter", handlePlay);
-        //                 // video.removeEventListener("mouseleave", stopVideo);
-        //                 // video.removeEventListener("mouseleave", handleEnded);
-        //                 video.addEventListener("click", togglePlayPause);
-        //                 // console.log("m");
-        //             } else {
-        //                 console.log("d");
-        //                 video.addEventListener("mouseenter", playVideo);
-        //                 video.addEventListener("mouseenter", handlePlay);
-        //                 video.addEventListener("mouseleave", stopVideo);
-        //                 video.addEventListener("mouseleave", handleEnded);
-        //             }
-        //
-        //             video.addEventListener("play", handlePlay);
-        //             video.addEventListener("ended", handleEnded);
-        //         };
-
-        // manageVideoEventsLocales();
-        // mediaQueryDesktop.addListener(manageVideoEventsLocales);
+            video.addEventListener("click", togglePlayPause);
+        });
+        // console.log("videos completada");
+        resolve();
     });
 };
 
-videoIn();
+// videoIn();
 
 ////////// CINTILLO
 
@@ -407,4 +435,23 @@ function getBgPos(i) {
     );
 }
 
-/////// MODAL SERVICIOS
+////////////
+
+async function init() {
+    try {
+        await paneles();
+
+        await setupMarquee();
+        window.addEventListener("resize", setupMarquee);
+
+        await animacionRebote(".momentos__categoria", ".momentos", -400);
+        await enabledSwiperServicios();
+        await videoIn();
+
+        // console.log("Todas las funciones se ejecutaron en orden.");
+    } catch (error) {
+        console.error("Ocurrió un error:", error);
+    }
+}
+
+init();
