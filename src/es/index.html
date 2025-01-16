@@ -108,8 +108,9 @@
    </header>
    <main class="home">
       <section class="hero full">
-         <video muted autoplay loop playsinline>
-            <source src="../video/video-hero.mp4" type="video/mp4">
+         <video muted autoplay loop playsinline data-videodesktop="../video/video-hero.mp4"
+            data-videomobile="../video/BNN-HOME-HEAD-MOVIL.mp4">
+            <source src="" type="video/mp4">
          </video>
          <div class="sticky-banner">
             <div class="container">
@@ -131,8 +132,18 @@
          <div class="container">
             <div class="row">
                <div class="col-12">
-                  <h2 class="momentos__categoria">PERFORMANCE</h2>
+                  <h2 class="momentos__categoria"><span>PERFORMANCE</span></h2>
                </div>
+               <svg id="forma-1" viewBox="0 0 800 800">
+                  <defs>
+                     <path id="path1"
+                        d="M.08,60S158.88,34.95,261.67,5.83c146.92-36.07,422.51,117.03,142.09,272.31-109.4,54.57-293.23,80.12-315.69,176.73,3.5,193.95,315.44-1.58,402.62-24.58s279.92,17.2,279.92,17.2" />
+                  </defs>
+                  <text>
+                     <textPath startOffset="0%" class="text" xlink:href="#path1">Impacto real - Rendimiento medible
+                     </textPath>
+                  </text>
+               </svg>
                <div class="col-xl-6 momentos__imagen">
                   <picture>
                      <img src="../img/Medusa_Opt.gif" alt="" />
@@ -158,9 +169,6 @@
                         <img src="../img/logo-tres.png" alt="" />
                      </picture>
                   </div>
-                  <div id="video-forma">
-                     <video src="../video/forma-1.mp4" muted autoplay loop playsinline></video>
-                  </div>
                </div>
             </div>
          </div>
@@ -169,12 +177,18 @@
          <div class="container">
             <div class="row">
                <div class="col-12">
-                  <h2 class="momentos__categoria">INNOVACIÓN</h2>
+                  <h2 class="momentos__categoria"><span>INNOVACIÓN</span></h2>
                </div>
-               <picture id="forma-2">
-                  <source srcset="../img/forma-2.webp" type="image/webp">
-                  <img src="../img/forma-2.png" alt="">
-               </picture>
+               <svg id="forma-2" viewBox="0 0 800 800">
+                  <defs>
+                     <path id="path2"
+                        d="M.1,464.18s158.91,31.65,240.41-55.64c81.6-87.19,74.53-162.36,154.61-254.94C475.29,61.02,559,4.62,639.98.64c80.99-3.98,157.37,76.35,31.12,321.79-39.62,79.04,8.86,130.37,8.86,130.37" />
+                  </defs>
+                  <text>
+                     <textPath startOffset="0%" class="text" xlink:href="#path2">Transformación constante - Enfoque al
+                        futuro </textPath>
+                  </text>
+               </svg>
                <div class="col-xl-6 momentos__imagen">
                   <picture>
                      <img src="../img/Fire_Opt.gif" alt="" />
@@ -196,12 +210,18 @@
          <div class="container">
             <div class="row">
                <div class="col-12">
-                  <h2 class="momentos__categoria">RELEVANCIA</h2>
+                  <h2 class="momentos__categoria"><span>RELEVANCIA</span></h2>
                </div>
-               <picture id="forma-3">
-                  <source srcset="../img/forma-2.webp" type="image/webp">
-                  <img src="../img/forma-3.png" alt="">
-               </picture>
+               <svg id="forma-3" viewBox="0 0 800 800">
+                  <defs>
+                     <path id="path3"
+                        d="M66.04,81.67S206.52-6.84,316.79.99c110.26,7.83,104.54,117.6,75.35,163.11-29.19,45.51-166.94,109.35-288.8,173.19C-18.52,401.14-1.88,461.63,5.95,494.25c7.83,32.61,117.07,108.51,246.9,56.1,129.83-52.41,288.04,18.47,347.04,80.39,63.92,67.08,187.97,87.13,187.97,87.13" />
+                  </defs>
+                  <text>
+                     <textPath startOffset="0%" class="text" xlink:href="#path3">Liderando tendencias - Mercado cautivo
+                     </textPath>
+                  </text>
+               </svg>
                <div class="col-xl-6 momentos__imagen">
                   <picture>
                      <img src="../img//BananaMan_Opt.gif" alt="" />
@@ -233,7 +253,7 @@
             </div>
          </div>
       </section>
-      <section class="servicios">
+      <section class="servicios" id="servicios">
          <div class="container">
             <div class="row justify-content-center">
                <div class="col-11">
@@ -332,72 +352,82 @@
                <div class="slider">
                   <div class="slider-wrapper">
                      <div class="slider-slide">
-                        <figure>
-                           <video src="../video/A.BOLD_A1_MeVeo_CancelaLasExcusas_1.mp4" loop muted playsinline
-                              poster="../img/LOGO-MEVEO-COLOR.png"></video>
+                        <figure data-bs-toggle="modal" data-bs-target="#modal-video"
+                           data-video="../video/A.BOLD_A1_MeVeo_CancelaLasExcusas_1.mp4">
+                           <picture>
+                              <img src="../img/LOGO-MEVEO-COLOR.png">
+                           </picture>
                            <div class="slider-slide__info">
-                              <h4>Campaña Social Media</h4>
-                              <h3>MEVEO</h3>
+                              <h4>Bold Campaign</h4>
+                              <h3>ME VEO</h3>
                            </div>
                            <div class="slider-slide__tags">
-                              <span>CREATIVIDAD</span>
-                              <span>ESTRATEGIA</span>
+                              <span>CREATIVITY</span>
+                              <span>360° Strategy</span>
                            </div>
                         </figure>
                      </div>
                      <div class="slider-slide">
-                        <figure>
-                           <video src="../video/A.BOLD_A3_Aspirina_SoundOff_1.mp4" loop muted playsinline
-                              poster="../img/LOGO-ASPIRINA-COLOR.png"></video>
+                        <figure data-bs-toggle="modal" data-bs-target="#modal-video"
+                           data-video="../video/B.TRENDY_B1_DogChow_MysteryBox_1.mp4">
+                           <picture>
+                              <img src="../img/LOGO-PURINA-COLOR.png">
+                           </picture>
                            <div class="slider-slide__info">
-                              <h4>Campaña Social Media</h4>
-                              <h3>ASPIRINA</h3>
+                              <h4>Trendy Campaign</h4>
+                              <h3>Dog Chow</h3>
                            </div>
                            <div class="slider-slide__tags">
-                              <span>CREATIVIDAD</span>
-                              <span>ESTRATEGIA</span>
+                              <span>CREATIVITY</span>
+                              <span>Social Media Strategy</span>
                            </div>
                         </figure>
                      </div>
                      <div class="slider-slide">
-                        <figure>
-                           <video src="../video/B.TRENDY_B2_OXXO_DiloConOXXO_1.mp4" loop muted playsinline
-                              poster="../img/LOGO-OXXO-COLOR.png"></video>
+                        <figure data-bs-toggle="modal" data-bs-target="#modal-video"
+                           data-video="../video/B.TRENDY_B2_OXXO_DiloConOXXO_1.mp4">
+                           <picture>
+                              <img src="../img/LOGO-OXXO-COLOR.png">
+                           </picture>
                            <div class="slider-slide__info">
-                              <h4>Campaña Social Media</h4>
+                              <h4>Trendy Campaign</h4>
                               <h3>OXXO</h3>
                            </div>
                            <div class="slider-slide__tags">
-                              <span>CREATIVIDAD</span>
-                              <span>ESTRATEGIA</span>
+                              <span>CREATIVITY</span>
+                              <span>Social Media Strategy</span>
                            </div>
                         </figure>
                      </div>
                      <div class="slider-slide">
-                        <figure>
-                           <video src="../video/B.TRENDY_B1_DogChow_MysteryBox_1.mp4" loop muted playsinline
-                              poster="../img/LOGO-PURINA-COLOR.png"></video>
+                        <figure data-bs-toggle="modal" data-bs-target="#modal-video"
+                           data-video="../video/A.BOLD_A3_Aspirina_SoundOff_1.mp4">
+                           <picture>
+                              <img src="../img/LOGO-ASPIRINA-COLOR.png"></img>
+                           </picture>
                            <div class="slider-slide__info">
-                              <h4>Campaña Social Media</h4>
-                              <h3>PURINA</h3>
+                              <h4>Bold Campaign</h4>
+                              <h3>ASPIRINA</h3>
                            </div>
                            <div class="slider-slide__tags">
-                              <span>CREATIVIDAD</span>
-                              <span>ESTRATEGIA</span>
+                              <span>CREATIVITY</span>
+                              <span>360° Strategy</span>
                            </div>
                         </figure>
                      </div>
                      <div class="slider-slide">
-                        <figure>
-                           <video src="../video/D.DATA-DRIVEN_D1_Roche_RompeElCiclo_1.mp4" loop muted playsinline
-                              poster="../img/LOGO-XOVLUZA-COLOR.png"></video>
+                        <figure data-bs-toggle="modal" data-bs-target="#modal-video"
+                           data-video="../video/D.DATA-DRIVEN_D1_Roche_RompeElCiclo_1.mp4">
+                           <picture>
+                              <img src="../img/LOGO-XOVLUZA-COLOR.png">
+                           </picture>
                            <div class="slider-slide__info">
-                              <h4>Campaña Social Media</h4>
+                              <h4>Data-Driven Campaign</h4>
                               <h3>XOVLUZA</h3>
                            </div>
                            <div class="slider-slide__tags">
-                              <span>CREATIVIDAD</span>
-                              <span>ESTRATEGIA</span>
+                              <span>CREATIVITY</span>
+                              <span>Game-Changing Strategy</span>
                            </div>
                         </figure>
                      </div>
@@ -406,6 +436,20 @@
             </div>
          </div>
       </section>
+      <div class="modal fade" id="modal-video" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               <div class="modal-body">
+                  <figure>
+                     <video src="../video/B.TRENDY_B2_OXXO_DiloConOXXO_1.mp4" loop playsinline></video>
+                     <button id="player"></button>
+                     <button id="sound"></button>
+                  </figure>
+               </div>
+            </div>
+         </div>
+      </div>
       <div class="modal fade" id="modal-servicios" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
          <div class="modal-dialog modal-fullscreen">
             <div class="modal-content">
@@ -437,16 +481,6 @@
                               <p> Convertimos la esencia de tu marca en campañas que desafían lo convencional y exigen
                                  ser vistas. Para nosotros, la creatividad no es un recurso, es nuestra arma para
                                  posicionar a nuestros partners donde merecen estar: al frente del mercado. </p>
-                              <!-- <div class="servicios__slide__nav">
-                                 <div class="servicios__slide__menu">
-                                    <h4>EXPLORA NUESTROS SERVICIOS</h4>
-                                    <div class="swiper-pagination"></div>
-                                 </div>
-                                 <div class="swiper-navigation-servicios">
-                                    <div class="swiper-button-prev"></div>
-                                    <div class="swiper-button-next"></div>
-                                 </div>
-                              </div> -->
                            </div>
                         </div>
                         <div class="swiper-slide container-fluid servicios__slide">
@@ -474,16 +508,6 @@
                                  insights accionables. Nuestros informes integran análisis detallado y datos en tiempo
                                  real, permitiendo evaluar resultados frente a KPIs para tomar decisiones estratégicas
                                  con precisión.</p>
-                              <!-- <div class="servicios__slide__nav">
-                                 <div class="servicios__slide__menu">
-                                    <h4>EXPLORA NUESTROS SERVICIOS</h4>
-                                    <div class="swiper-pagination"></div>
-                                 </div>
-                                 <div class="swiper-navigation-servicios">
-                                    <div class="swiper-button-prev"></div>
-                                    <div class="swiper-button-next"></div>
-                                 </div>
-                              </div> -->
                            </div>
                         </div>
                         <div class="swiper-slide container-fluid servicios__slide">
@@ -547,16 +571,6 @@
                               <p>Nuestra experiencia en medios y partners estratégicos nos permiten diseñar y optimizar
                                  cada campaña para maximizar resultados en cada formato, conectando de manera precisa y
                                  asegurando que tu marca esté justo donde tu público la necesita.</p>
-                              <!-- <div class="servicios__slide__nav">
-                                 <div class="servicios__slide__menu">
-                                    <h4>EXPLORA NUESTROS SERVICIOS</h4>
-                                    <div class="swiper-pagination"></div>
-                                 </div>
-                                 <div class="swiper-navigation-servicios">
-                                    <div class="swiper-button-prev"></div>
-                                    <div class="swiper-button-next"></div>
-                                 </div>
-                              </div> -->
                            </div>
                         </div>
                         <div class="swiper-slide container-fluid servicios__slide">
@@ -584,16 +598,6 @@
                                  enfoque innovador en storytelling y el poder de la inteligencia artificial, creamos
                                  piezas visuales impactantes. Producimos contenido auténtico y de clase mundial que
                                  refuerza tu mensaje clave y supera todas las expectativas.</p>
-                              <!-- <div class="servicios__slide__nav">
-                                 <div class="servicios__slide__menu">
-                                    <h4>EXPLORA NUESTROS SERVICIOS</h4>
-                                    <div class="swiper-pagination"></div>
-                                 </div>
-                                 <div class="swiper-navigation-servicios">
-                                    <div class="swiper-button-prev"></div>
-                                    <div class="swiper-button-next"></div>
-                                 </div>
-                              </div> -->
                            </div>
                         </div>
                         <div class="swiper-slide container-fluid servicios__slide">
@@ -621,16 +625,6 @@
                                  las conversaciones que realmente importan. Generamos engagement genuino, fortalecemos
                                  el vínculo con tu audiencia y transformamos seguidores en comunidades leales y
                                  comprometidas.</p>
-                              <!-- <div class="servicios__slide__nav">
-                                 <div class="servicios__slide__menu">
-                                    <h4>EXPLORA NUESTROS SERVICIOS</h4>
-                                   <div class="swiper-pagination"></div>
-                                 </div>
-                                 <div class="swiper-navigation-servicios">
-                                    <div class="swiper-button-prev"></div>
-                                    <div class="swiper-button-next"></div>
-                                 </div>
-                              </div> -->
                            </div>
                         </div>
                      </div>

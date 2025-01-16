@@ -45,6 +45,10 @@
     );
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0b0d15', endColorstr='#0b0d15', GradientType=0 );
 
+    .container {
+        padding: 0 40px;
+    }
+
     &--logo {
         width: 110px;
         object-fit: contain;

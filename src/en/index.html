@@ -113,8 +113,9 @@
    </header>
    <main class="home">
       <section class="hero full">
-         <video muted autoplay loop playsinline>
-            <source src="../video/video-hero.mp4" type="video/mp4">
+         <video muted autoplay loop playsinline data-videodesktop="../video/video-hero.mp4"
+            data-videomobile="../video/BNN-HOME-HEAD-MOVIL.mp4">
+            <source src="" type="video/mp4">
          </video>
          <div class="sticky-banner">
             <div class="container">
@@ -135,8 +136,18 @@
          <div class="container">
             <div class="row">
                <div class="col-12">
-                  <h2 class="momentos__categoria">PERFORMANCE</h2>
+                  <h2 class="momentos__categoria"><span>PERFORMANCE</span></h2>
                </div>
+               <svg id="forma-1" viewBox="0 0 800 800">
+                  <defs>
+                     <path id="path1"
+                        d="M.08,60S158.88,34.95,261.67,5.83c146.92-36.07,422.51,117.03,142.09,272.31-109.4,54.57-293.23,80.12-315.69,176.73,3.5,193.95,315.44-1.58,402.62-24.58s279.92,17.2,279.92,17.2" />
+                  </defs>
+                  <text>
+                     <textPath startOffset="0%" class="text" xlink:href="#path1">Real impact - Delivering results
+                     </textPath>
+                  </text>
+               </svg>
                <div class="col-xl-6 momentos__imagen">
                   <picture>
                      <img src="../img/Medusa_Opt.gif" alt="" />
@@ -163,9 +174,6 @@
                         <img src="../img/logo-tres.png" alt="" />
                      </picture>
                   </div>
-                  <div id="video-forma">
-                     <video src="../video/forma-1.mp4" muted autoplay loop playsinline></video>
-                  </div>
                </div>
             </div>
          </div>
@@ -174,12 +182,18 @@
          <div class="container">
             <div class="row">
                <div class="col-12">
-                  <h2 class="momentos__categoria">INNOVACIÓN</h2>
+                  <h2 class="momentos__categoria"><span>INNOVACIÓN</span></h2>
                </div>
-               <picture id="forma-2">
-                  <source srcset="../img/forma-2.webp" type="image/webp">
-                  <img src="../img/forma-2.png" alt="">
-               </picture>
+               <svg id="forma-2" viewBox="0 0 800 800">
+                  <defs>
+                     <path id="path2"
+                        d="M.1,464.18s158.91,31.65,240.41-55.64c81.6-87.19,74.53-162.36,154.61-254.94C475.29,61.02,559,4.62,639.98.64c80.99-3.98,157.37,76.35,31.12,321.79-39.62,79.04,8.86,130.37,8.86,130.37" />
+                  </defs>
+                  <text>
+                     <textPath startOffset="0%" class="text" xlink:href="#path2">Constant transformation -
+                        Future-focused </textPath>
+                  </text>
+               </svg>
                <div class="col-xl-6 momentos__imagen">
                   <picture>
                      <img src="../img/Fire_Opt.gif" alt="" />
@@ -203,12 +217,18 @@
          <div class="container">
             <div class="row">
                <div class="col-12">
-                  <h2 class="momentos__categoria">RELEVANCIA</h2>
+                  <h2 class="momentos__categoria"><span>relevance</span></h2>
                </div>
-               <picture id="forma-3">
-                  <source srcset="../img/forma-2.webp" type="image/webp">
-                  <img src="../img/forma-3.png" alt="">
-               </picture>
+               <svg id="forma-3" viewBox="0 0 800 800">
+                  <defs>
+                     <path id="path3"
+                        d="M66.04,81.67S206.52-6.84,316.79.99c110.26,7.83,104.54,117.6,75.35,163.11-29.19,45.51-166.94,109.35-288.8,173.19C-18.52,401.14-1.88,461.63,5.95,494.25c7.83,32.61,117.07,108.51,246.9,56.1,129.83-52.41,288.04,18.47,347.04,80.39,63.92,67.08,187.97,87.13,187.97,87.13" />
+                  </defs>
+                  <text>
+                     <textPath startOffset="0%" class="text" xlink:href="#path3">Leading trends - Captivating markets
+                     </textPath>
+                  </text>
+               </svg>
                <div class="col-xl-6 momentos__imagen">
                   <picture>
                      <img src="../img//BananaMan_Opt.gif" alt="" />
@@ -240,12 +260,12 @@
             </div>
          </div>
       </section>
-      <section class="servicios">
+      <section class="servicios" id="servicios">
          <div class="container">
             <div class="row justify-content-center">
                <div class="col-11">
                   <div class="title-decorated">
-                     <h4>SERVICIOS</h4>
+                     <h4>THE MACHINERY</h4>
                   </div>
                </div>
                <div class="col-xl-9 col-12">
@@ -339,72 +359,82 @@
                <div class="slider">
                   <div class="slider-wrapper">
                      <div class="slider-slide">
-                        <figure>
-                           <video src="../video/A.BOLD_A1_MeVeo_CancelaLasExcusas_1.mp4" loop muted playsinline
-                              poster="../img/LOGO-MEVEO-COLOR.png"></video>
+                        <figure data-bs-toggle="modal" data-bs-target="#modal-video"
+                           data-video="../video/A.BOLD_A1_MeVeo_CancelaLasExcusas_1.mp4">
+                           <picture>
+                              <img src="../img/LOGO-MEVEO-COLOR.png">
+                           </picture>
                            <div class="slider-slide__info">
-                              <h4>Social Media Campaign</h4>
-                              <h3>MEVEO</h3>
+                              <h4>Bold Campaign</h4>
+                              <h3>ME VEO</h3>
                            </div>
                            <div class="slider-slide__tags">
                               <span>CREATIVITY</span>
-                              <span>STRATEGY</span>
+                              <span>360° Strategy</span>
                            </div>
                         </figure>
                      </div>
                      <div class="slider-slide">
-                        <figure>
-                           <video src="../video/A.BOLD_A3_Aspirina_SoundOff_1.mp4" loop muted playsinline
-                              poster="../img/LOGO-ASPIRINA-COLOR.png"></video>
+                        <figure data-bs-toggle="modal" data-bs-target="#modal-video"
+                           data-video="../video/B.TRENDY_B1_DogChow_MysteryBox_1.mp4">
+                           <picture>
+                              <img src="../img/LOGO-PURINA-COLOR.png">
+                           </picture>
                            <div class="slider-slide__info">
-                              <h4>Social Media Campaign</h4>
+                              <h4>Trendy Campaign</h4>
+                              <h3>Dog Chow</h3>
+                           </div>
+                           <div class="slider-slide__tags">
+                              <span>CREATIVITY</span>
+                              <span>Social Media Strategy</span>
+                           </div>
+                        </figure>
+                     </div>
+                     <div class="slider-slide">
+                        <figure data-bs-toggle="modal" data-bs-target="#modal-video"
+                           data-video="../video/B.TRENDY_B2_OXXO_DiloConOXXO_1.mp4">
+                           <picture>
+                              <img src="../img/LOGO-OXXO-COLOR.png">
+                           </picture>
+                           <div class="slider-slide__info">
+                              <h4>Trendy Campaign</h4>
+                              <h3>OXXO</h3>
+                           </div>
+                           <div class="slider-slide__tags">
+                              <span>CREATIVITY</span>
+                              <span>Social Media Strategy</span>
+                           </div>
+                        </figure>
+                     </div>
+                     <div class="slider-slide">
+                        <figure data-bs-toggle="modal" data-bs-target="#modal-video"
+                           data-video="../video/A.BOLD_A3_Aspirina_SoundOff_1.mp4">
+                           <picture>
+                              <img src="../img/LOGO-ASPIRINA-COLOR.png"></img>
+                           </picture>
+                           <div class="slider-slide__info">
+                              <h4>Bold Campaign</h4>
                               <h3>ASPIRINA</h3>
                            </div>
                            <div class="slider-slide__tags">
                               <span>CREATIVITY</span>
-                              <span>STRATEGY</span>
+                              <span>360° Strategy</span>
                            </div>
                         </figure>
                      </div>
                      <div class="slider-slide">
-                        <figure>
-                           <video src="../video/B.TRENDY_B2_OXXO_DiloConOXXO_1.mp4" loop muted playsinline
-                              poster="../img/LOGO-OXXO-COLOR.png"></video>
+                        <figure data-bs-toggle="modal" data-bs-target="#modal-video"
+                           data-video="../video/D.DATA-DRIVEN_D1_Roche_RompeElCiclo_1.mp4">
+                           <picture>
+                              <img src="../img/LOGO-XOVLUZA-COLOR.png">
+                           </picture>
                            <div class="slider-slide__info">
-                              <h4>Social Media Campaign</h4>
-                              <h3>OXXO</h3>
-                           </div>
-                           <div class="slider-slide__tags">
-                              <span>CREATIVIDAD</span>
-                              <span>ESTRATEGIA</span>
-                           </div>
-                        </figure>
-                     </div>
-                     <div class="slider-slide">
-                        <figure>
-                           <video src="../video/B.TRENDY_B1_DogChow_MysteryBox_1.mp4" loop muted playsinline
-                              poster="../img/LOGO-PURINA-COLOR.png"></video>
-                           <div class="slider-slide__info">
-                              <h4>Social Media Campaign</h4>
-                              <h3>PURINA</h3>
-                           </div>
-                           <div class="slider-slide__tags">
-                              <span>CREATIVITY</span>
-                              <span>STRATEGY</span>
-                           </div>
-                        </figure>
-                     </div>
-                     <div class="slider-slide">
-                        <figure>
-                           <video src="../video/D.DATA-DRIVEN_D1_Roche_RompeElCiclo_1.mp4" loop muted playsinline
-                              poster="../img/LOGO-XOVLUZA-COLOR.png"></video>
-                           <div class="slider-slide__info">
-                              <h4>Social Media Campaign</h4>
+                              <h4>Data-Driven Campaign</h4>
                               <h3>XOVLUZA</h3>
                            </div>
                            <div class="slider-slide__tags">
                               <span>CREATIVITY</span>
-                              <span>STRATEGY</span>
+                              <span>Game-Changing Strategy</span>
                            </div>
                         </figure>
                      </div>
@@ -413,6 +443,20 @@
             </div>
          </div>
       </section>
+      <div class="modal fade" id="modal-video" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               <div class="modal-body">
+                  <figure>
+                     <video src="../video/B.TRENDY_B2_OXXO_DiloConOXXO_1.mp4" loop playsinline></video>
+                     <button id="player"></button>
+                     <button id="sound"></button>
+                  </figure>
+               </div>
+            </div>
+         </div>
+      </div>
       <div class="modal fade" id="modal-servicios" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
          <div class="modal-dialog modal-fullscreen">
             <div class="modal-content">
@@ -437,23 +481,13 @@
                            </div>
                            <div class=" servicios__slide__info">
                               <div class="title-decorated">
-                                 <h4>SERVICIOS</h4>
-                                 <h2><span>CREATIVIDAD</span></h2>
-                                 <h5>Las ideas detonan movimientos</h5>
+                                 <h4>SERVICES</h4>
+                                 <h2><span>Creativity</span></h2>
+                                 <h5>Ideas spark movements</h5>
                               </div>
-                              <p> Convertimos la esencia de tu marca en campañas que desafían lo convencional y exigen
-                                 ser vistas. Para nosotros, la creatividad no es un recurso, es nuestra arma para
-                                 posicionar a nuestros partners donde merecen estar: al frente del mercado. </p>
-                              <!-- <div class="servicios__slide__nav">
-                                 <div class="servicios__slide__menu">
-                                    <h4>EXPLORA NUESTROS SERVICIOS</h4>
-                                    <div class="swiper-pagination"></div>
-                                 </div>
-                                 <div class="swiper-navigation-servicios">
-                                    <div class="swiper-button-prev"></div>
-                                    <div class="swiper-button-next"></div>
-                                 </div>
-                              </div> -->
+                              <p>We turn the essence of your brand into campaigns that break conventions and demand
+                                 attention. For us, creativity isn’t just a tool—it’s the weapon we use to position our
+                                 partners where they belong: at the forefront of the market.</p>
                            </div>
                         </div>
                         <div class="swiper-slide container-fluid servicios__slide">
@@ -473,24 +507,14 @@
                            </div>
                            <div class=" servicios__slide__info">
                               <div class="title-decorated">
-                                 <h4>SERVICIOS</h4>
+                                 <h4>SERVICES</h4>
                                  <h2><span>BI & DATA</span></h2>
-                                 <h5>De datos a decisiones poderosas</h5>
+                                 <h5>Turning Data into Powerful Decisions</h5>
                               </div>
-                              <p>Inteligencia impulsada por datos. En Business Intelligence convertimos cifras en
-                                 insights accionables. Nuestros informes integran análisis detallado y datos en tiempo
-                                 real, permitiendo evaluar resultados frente a KPIs para tomar decisiones estratégicas
-                                 con precisión.</p>
-                              <!-- <div class="servicios__slide__nav">
-                                 <div class="servicios__slide__menu">
-                                    <h4>EXPLORA NUESTROS SERVICIOS</h4>
-                                    <div class="swiper-pagination"></div>
-                                 </div>
-                                 <div class="swiper-navigation-servicios">
-                                    <div class="swiper-button-prev"></div>
-                                    <div class="swiper-button-next"></div>
-                                 </div>
-                              </div> -->
+                              <p>Harnessing the power of data. At Business Intelligence, we transform numbers into
+                                 actionable insights. Our reports combine detailed analysis with real-time data,
+                                 enabling precise evaluation of results against KPIs and empowering strategic,
+                                 data-backed decisions.</p>
                            </div>
                         </div>
                         <div class="swiper-slide container-fluid servicios__slide">
@@ -510,24 +534,14 @@
                            </div>
                            <div class=" servicios__slide__info">
                               <div class="title-decorated">
-                                 <h4>SERVICIOS</h4>
-                                 <h2><span>Desarrollo</span></h2>
-                                 <h5>Diseño y tecnología para conectar sin límites</h5>
+                                 <h4>SERVICES</h4>
+                                 <h2><span>Development</span></h2>
+                                 <h5>Design and technology to connect without limits</h5>
                               </div>
-                              <p>Creamos ecosistemas digitales únicos que combinan funcionalidad y estética para
-                                 maximizar cada punto de contacto con tu audiencia. Desde plataformas web dinámicas
-                                 hasta apps intuitivas, diseñamos experiencias que eliminan fricciones, personalizan
-                                 conexiones y priorizan la seguridad.</p>
-                              <!-- <div class="servicios__slide__nav">
-                                 <div class="servicios__slide__menu">
-                                    <h4>EXPLORA NUESTROS SERVICIOS</h4>
-                                    <div class="swiper-pagination"></div>
-                                 </div>
-                                 <div class="swiper-navigation-servicios">
-                                    <div class="swiper-button-prev"></div>
-                                    <div class="swiper-button-next"></div>
-                                 </div>
-                              </div> -->
+                              <p>We develop unique digital ecosystems that combine functionality and aesthetics to
+                                 maximize every touchpoint with your audience. From dynamic web solutions to intuitive
+                                 apps, we create experiences that eliminate friction, personalize interactions, and
+                                 prioritize security.</p>
                            </div>
                         </div>
                         <div class="swiper-slide container-fluid servicios__slide">
@@ -547,23 +561,13 @@
                            </div>
                            <div class=" servicios__slide__info">
                               <div class="title-decorated">
-                                 <h4>SERVICIOS</h4>
-                                 <h2><span>Medios</span></h2>
-                                 <h5>Impacto en el lugar y momento correcto</h5>
+                                 <h4>SERVICES</h4>
+                                 <h2><span>Media</span></h2>
+                                 <h5>Reaching the right people at the right time</h5>
                               </div>
-                              <p>Nuestra experiencia en medios y partners estratégicos nos permiten diseñar y optimizar
-                                 cada campaña para maximizar resultados en cada formato, conectando de manera precisa y
-                                 asegurando que tu marca esté justo donde tu público la necesita.</p>
-                              <!-- <div class="servicios__slide__nav">
-                                 <div class="servicios__slide__menu">
-                                    <h4>EXPLORA NUESTROS SERVICIOS</h4>
-                                    <div class="swiper-pagination"></div>
-                                 </div>
-                                 <div class="swiper-navigation-servicios">
-                                    <div class="swiper-button-prev"></div>
-                                    <div class="swiper-button-next"></div>
-                                 </div>
-                              </div> -->
+                              <p>With our expertise and strategic partnerships, we design and optimize campaigns to
+                                 deliver maximum results across all formats, ensuring your brand connects with your
+                                 audience exactly when and where they need it.</p>
                            </div>
                         </div>
                         <div class="swiper-slide container-fluid servicios__slide">
@@ -583,24 +587,14 @@
                            </div>
                            <div class=" servicios__slide__info">
                               <div class="title-decorated">
-                                 <h4>SERVICIOS</h4>
-                                 <h2><span>Producción</span></h2>
-                                 <h5>Storytelling que trasciende formatos</h5>
+                                 <h4>SERVICES</h4>
+                                 <h2><span>Production</span></h2>
+                                 <h5>Stories that leave a mark</h5>
                               </div>
-                              <p>Damos vida a ideas que no solo destacan, sino que permanecen en la memoria. Con un
-                                 enfoque innovador en storytelling y el poder de la inteligencia artificial, creamos
-                                 piezas visuales impactantes. Producimos contenido auténtico y de clase mundial que
-                                 refuerza tu mensaje clave y supera todas las expectativas.</p>
-                              <!-- <div class="servicios__slide__nav">
-                                 <div class="servicios__slide__menu">
-                                    <h4>EXPLORA NUESTROS SERVICIOS</h4>
-                                    <div class="swiper-pagination"></div>
-                                 </div>
-                                 <div class="swiper-navigation-servicios">
-                                    <div class="swiper-button-prev"></div>
-                                    <div class="swiper-button-next"></div>
-                                 </div>
-                              </div> -->
+                              <p>We bring ideas to life that not only stand out but leave a lasting impression. With an
+                                 innovative approach to storytelling and the power of artificial intelligence, we create
+                                 visually stunning content. Our world-class productions are authentic, impactful, and
+                                 crafted to amplify your message while exceeding expectations.</p>
                            </div>
                         </div>
                         <div class="swiper-slide container-fluid servicios__slide">
@@ -620,31 +614,21 @@
                            </div>
                            <div class=" servicios__slide__info">
                               <div class="title-decorated">
-                                 <h4>SERVICIOS</h4>
+                                 <h4>SERVICES</h4>
                                  <h2><span>Social media</span></h2>
-                                 <h5>Humanizamos marcas para crear comunidades</h5>
+                                 <h5>Humanizing brands to inspire loyal communities</h5>
                               </div>
-                              <p>Creamos estrategias que humanizan tu marca, posicionándola como una voz relevante en
-                                 las conversaciones que realmente importan. Generamos engagement genuino, fortalecemos
-                                 el vínculo con tu audiencia y transformamos seguidores en comunidades leales y
-                                 comprometidas.</p>
-                              <!-- <div class="servicios__slide__nav">
-                                 <div class="servicios__slide__menu">
-                                    <h4>EXPLORA NUESTROS SERVICIOS</h4>
-                                   <div class="swiper-pagination"></div>
-                                 </div>
-                                 <div class="swiper-navigation-servicios">
-                                    <div class="swiper-button-prev"></div>
-                                    <div class="swiper-button-next"></div>
-                                 </div>
-                              </div> -->
+                              <p>We create strategies that humanize your brand, bringing it closer to your audience and
+                                 establishing it as a meaningful voice in the conversations that truly matter. Through
+                                 genuine engagement and strong connections, we turn followers into loyal, thriving
+                                 communities. </p>
                            </div>
                         </div>
                      </div>
                   </div>
                   <div class="servicios__slide__nav">
                      <div class="servicios__slide__menu">
-                        <h4>EXPLORA NUESTROS SERVICIOS</h4>
+                        <h4>EXPLORE our services</h4>
                         <div class="swiper-pagination"></div>
                      </div>
                      <div class="swiper-navigation-servicios">

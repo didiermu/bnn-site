@@ -2,6 +2,10 @@
     position: relative;
     padding: 0 0 var(--spacing-xl);
 
+    .container {
+        padding: 0 40px;
+    }
+
     .sticky-banner {
         width: max-content;
         top: 120px;

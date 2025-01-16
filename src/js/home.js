@@ -1,7 +1,9 @@
+import { Modal } from "bootstrap";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import MotionPathPlugin from "gsap/MotionPathPlugin";
+import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(MotionPathPlugin);
 
 //// SWIPER
 
@@ -16,6 +18,21 @@ import {
 import "swiper/swiper-bundle.css";
 
 const mediaQueryDesktop = window.matchMedia("(max-width: 1279px)");
+
+const videoHero = () => {
+    const videoHero = document.querySelector(".hero video");
+    if (!mediaQueryDesktop.matches) {
+        videoHero
+            .querySelector("source")
+            .setAttribute("src", videoHero.dataset.videodesktop);
+    } else {
+        videoHero
+            .querySelector("source")
+            .setAttribute("src", videoHero.dataset.videomobile);
+    }
+
+    videoHero.load();
+};
 
 ////////// PANELES
 
@@ -103,6 +120,45 @@ const parallax = (el, trigger, movimiento = 40, delay = 0) => {
         });
 
         // console.log("Parallax configurado");
+        resolve();
+    });
+};
+
+////// MARQUESINA MOMENTOS
+
+const marquesinaMomentos = (svgSelector) => {
+    return new Promise((resolve) => {
+        const svgElement = document.querySelector(svgSelector);
+        const textElement = svgElement.querySelector(".text");
+        const originalText = textElement.textContent.trim(); // Obtén el texto original
+        const path = svgElement.querySelector("path"); // Selecciona el path del SVG
+        const pathLength = path.getTotalLength(); // Longitud total del path
+        const textWidth = textElement.getComputedTextLength(); // Ancho del texto original
+
+        // Duplica el texto automáticamente para cubrir el path
+        let repeatedText = originalText;
+        while (
+            textWidth * repeatedText.split(originalText).length <
+            pathLength * 3
+        ) {
+            repeatedText += ` ${originalText} •`; // Agrega el texto original con un separador
+        }
+
+        textElement.textContent = repeatedText.trim(); // Actualiza el texto en el <textPath>
+
+        // Configura la animación con GSAP
+        gsap.set(svgElement, { autoAlpha: 1 }); // Asegura que el SVG sea visible
+
+        gsap.timeline({ repeat: -1 }).fromTo(
+            textElement,
+            { attr: { startOffset: "0%" } }, // Inicia desde el principio del camino
+            {
+                attr: { startOffset: "-100%" }, // Desplaza el texto completamente
+                duration: 20, // Ajusta la duración para controlar la velocidad
+                ease: "none", // Movimiento constante
+            }
+        );
+
         resolve();
     });
 };
@@ -203,22 +259,33 @@ var swiperOptions = {
 var swiper = new Swiper(".swiper-logos", swiperOptions);
 
 ////// SLIDER SERVICIOS
-// import { Modal } from "bootstrap";
-// const myModal = new Modal(document.getElementById("modal-servicios"));
-// myModal.show();
 
 let swiperServicios;
 
 const enabledSwiperServicios = () => {
     return new Promise((resolve) => {
-        const bulletTexts = [
-            "Creatividad",
-            "BI & Data",
-            "Desarrollo",
-            "Medios",
-            "Producción",
-            "Social Media",
-        ];
+        const pageLanguage = document.documentElement.lang || "en";
+        let bulletTexts;
+
+        if (pageLanguage == "es") {
+            bulletTexts = [
+                "Creatividad",
+                "BI & Data",
+                "Desarrollo",
+                "Medios",
+                "Producción",
+                "Social Media",
+            ];
+        } else {
+            bulletTexts = [
+                "Creativity",
+                "BI & Data",
+                "Development",
+                "Media",
+                "Production",
+                "Social Media",
+            ];
+        }
 
         swiperServicios = new Swiper(".swiper-servicios", {
             modules: [Navigation, Pagination],
@@ -302,88 +369,103 @@ const enabledSwiperServicios = () => {
 };
 
 ///////// MARQUESINA
-const marquee = document.getElementById("marquee");
-const marqueeContainer = document.querySelector(".marquee-container");
-
-function adjustContent() {
-    const marqueeText = marquee.querySelector("span").textContent;
-    const containerWidth = marqueeContainer.offsetWidth;
-    let contentWidth = marquee.offsetWidth;
-
-    // Elimina duplicaciones previas
-    marquee.innerHTML = `<span>${marqueeText} </span>`;
-
-    // Duplica el contenido hasta que sea mayor al ancho del contenedor
-    while (contentWidth < containerWidth * 2) {
-        marquee.innerHTML += marquee.innerHTML;
-        contentWidth = marquee.offsetWidth;
-    }
-}
-
-function startMarquee() {
-    const contentWidth = marquee.offsetWidth;
-
-    gsap.to(".marquee-content", {
-        x: -contentWidth / 2,
-        duration: 20,
-        ease: "linear",
-        repeat: -1,
-        modifiers: {
-            x: gsap.utils.unitize((x) => parseFloat(x) % contentWidth),
-        },
-    });
-}
-
-function setupMarquee() {
+const marquesinaHero = () => {
     return new Promise((resolve) => {
-        adjustContent();
-        gsap.killTweensOf(".marquee-content");
-        startMarquee();
-        // console.log("marquesina completada");
+        const marquee = document.getElementById("marquee");
+        const marqueeContainer = document.querySelector(".marquee-container");
+
+        function adjustContent() {
+            const marqueeText = marquee.querySelector("span").textContent;
+            const containerWidth = marqueeContainer.offsetWidth;
+            let contentWidth = marquee.offsetWidth;
+
+            // Elimina duplicaciones previas
+            marquee.innerHTML = `<span>${marqueeText} </span>`;
+
+            // Duplica el contenido hasta que sea mayor al ancho del contenedor
+            while (contentWidth < containerWidth * 2) {
+                marquee.innerHTML += marquee.innerHTML;
+                contentWidth = marquee.offsetWidth;
+            }
+        }
+
+        function startMarquee() {
+            const contentWidth = marquee.offsetWidth;
+
+            gsap.to(".marquee-content", {
+                x: -contentWidth / 2,
+                duration: 20,
+                ease: "linear",
+                repeat: -1,
+                modifiers: {
+                    x: gsap.utils.unitize((x) => parseFloat(x) % contentWidth),
+                },
+            });
+        }
+
+        function setupMarquee() {
+            return new Promise((resolve) => {
+                adjustContent();
+                gsap.killTweensOf(".marquee-content");
+                startMarquee();
+                // console.log("marquesina completada");
+                resolve();
+            });
+        }
+
+        setupMarquee();
         resolve();
     });
-}
+};
 
 // VIDEOS IN MOTION
 
 const videoIn = () => {
     return new Promise((resolve) => {
-        const videos = document.querySelectorAll(".inmotion video");
+        // const myModal = new Modal(document.getElementById("modal-video"));
+        // myModal.show();
+        const myModal = document.getElementById("modal-video");
+        const videos = document.querySelectorAll(".inmotion figure");
+        const btnPlayer = document.querySelector("button#player");
+        const btnSound = document.querySelector("button#sound");
+        const videoModal = document.querySelector("#modal-video video");
 
         videos.forEach((video) => {
-            const togglePlayPause = function () {
-                if (this.paused) {
-                    this.play();
-                    this.closest("figure").setAttribute("class", "play");
+            let srcVideo = video.dataset.video;
+            video.addEventListener("click", () => {
+                videoModal.setAttribute("src", srcVideo);
+            });
+
+            myModal.addEventListener("shown.bs.modal", (event) => {
+                videoModal.play();
+            });
+            myModal.addEventListener("hide.bs.modal", (event) => {
+                videoModal.pause();
+                videoModal.currentTime = 0;
+                videoModal.muted = false;
+                btnPlayer.classList.remove("play");
+                btnSound.classList.remove("muted");
+            });
+
+            btnPlayer.addEventListener("click", () => {
+                if (videoModal.paused) {
+                    btnPlayer.classList.remove("play");
+                    videoModal.play();
                 } else {
-                    this.pause();
-                    this.closest("figure").removeAttribute("class");
+                    btnPlayer.classList.add("play");
+                    videoModal.pause();
                 }
-            };
-
-            const playVideo = function () {
-                this.play();
-            };
-
-            const stopVideo = function () {
-                this.pause();
-                this.currentTime = 0;
-                this.load();
-                this.removeAttribute("controls");
-            };
-
-            const handlePlay = function () {
-                this.setAttribute("class", "play");
-            };
-
-            const handleEnded = function () {
-                this.removeAttribute("class");
-                stopVideo.call(this);
-            };
-
-            video.addEventListener("click", togglePlayPause);
+            });
+            btnSound.addEventListener("click", () => {
+                videoModal.muted = !videoModal.muted;
+                if (videoModal.muted) {
+                    btnSound.classList.add("muted");
+                } else {
+                    btnSound.classList.remove("muted");
+                }
+            });
         });
-        // console.log("videos completada");
+
         resolve();
     });
 };
@@ -439,10 +521,24 @@ function getBgPos(i) {
 
 async function init() {
     try {
+        document.addEventListener("DOMContentLoaded", () => {
+            window.scrollTo(0, 0);
+        });
+
+        videoHero();
+        mediaQueryDesktop.addEventListener("change", videoHero);
+
         await paneles();
 
-        await setupMarquee();
-        window.addEventListener("resize", setupMarquee);
+        // await setupMarquee();
+        // window.addEventListener("resize", setupMarquee);
+
+        await marquesinaHero();
+        window.addEventListener("resize", marquesinaHero);
+
+        await marquesinaMomentos("#forma-1");
+        await marquesinaMomentos("#forma-2");
+        await marquesinaMomentos("#forma-3");
 
         await animacionRebote(".momentos__categoria", ".momentos", -400);
         await enabledSwiperServicios();
