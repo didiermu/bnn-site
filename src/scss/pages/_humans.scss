@@ -432,6 +432,10 @@
 @media (max-width: 1279px) {
     .humans {
         .historia {
+            &--ind {
+                bottom: 0;
+            }
+
             .content-box {
                 display: flex;
                 flex-direction: column;
