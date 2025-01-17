@@ -308,7 +308,7 @@
                 transition: 0.3s ease-in-out all;
                 cursor: pointer;
                 text-transform: uppercase;
-                pointer-events: none;
+                // pointer-events: none;
 
                 &:nth-child(odd) {
                     justify-self: center;
@@ -710,14 +710,28 @@
             align-items: center;
             column-gap: 40px;
             scroll-snap-align: start;
+            flex: 1 0 auto;
+
+            &:last-child {
+                &::after {
+                    content: "";
+                    display: block;
+                    width: 24px;
+                    height: 20px;
+                    flex: 1 0 24px;
+                    background: var(--icon-rombo-gris) no-repeat center / 28px;
+                    bottom: 35px;
+                    position: relative;
+                }
+            }
 
             &::before {
                 content: "";
                 display: block;
                 width: 24px;
-                height: 24px;
+                height: 20px;
                 flex: 1 0 24px;
-                background: var(--icon-rombo-gris) no-repeat center / contain;
+                background: var(--icon-rombo-gris) no-repeat center / 28px;
                 bottom: 35px;
                 position: relative;
             }
@@ -902,9 +916,23 @@
 
 @media (max-width: 1280px) {
     .home {
+        .hero {
+            height: auto !important;
+
+            video {
+                aspect-ratio: 9/16;
+            }
+
+            .sticky-banner {
+                position: relative;
+                bottom: var(--spacing-xs);
+            }
+        }
+
         .momentos {
             &.full {
                 height: auto;
+                padding: var(--spacing-6xl) 0 var(--spacing-2xl);
             }
 
             &__title {
@@ -1071,12 +1099,12 @@
                     column-gap: var(--spacing-lg);
                     min-width: 80vw;
 
-                    &:last-child {
-                        margin-right: 44px;
-                    }
+                    // &:last-child {
+                    //     margin-right: 24px;
+                    // }
 
                     figure {
-                        width: 280px;
+                        width: 250px;
                     }
 
                     picture {

@@ -21,16 +21,6 @@ const mediaQueryDesktop = window.matchMedia("(max-width: 1279px)");
 
 const videoHero = () => {
     const videoHero = document.querySelector(".hero video");
-    if (!mediaQueryDesktop.matches) {
-        videoHero
-            .querySelector("source")
-            .setAttribute("src", videoHero.dataset.videodesktop);
-    } else {
-        videoHero
-            .querySelector("source")
-            .setAttribute("src", videoHero.dataset.videomobile);
-    }
-
     videoHero.load();
 };
 

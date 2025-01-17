@@ -39,6 +39,7 @@
         letter-spacing: calc(28px + 10 * ((100vw - 1280px) / 1920));
         @include font-primary-light;
         text-transform: uppercase;
+        margin-right: -28px;
 
         span {
             @include font-primary-bold;
