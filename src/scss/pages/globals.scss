@@ -4,6 +4,14 @@
     background: var(--color-negro);
     overflow-x: hidden;
 
+    &#body-home {
+        background: var(--color-negro-500);
+
+        section:not(.footer, .logos, .sticky) {
+            background: var(--color-negro-500);
+        }
+    }
+
     h1,
     h2,
     h3,

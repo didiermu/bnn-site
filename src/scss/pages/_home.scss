@@ -914,6 +914,21 @@
     }
 }
 
+@media (min-width: 1440px) {
+    .home {
+        .momentos svg {
+            height: 1200px;
+
+            &#forma-1 {
+                top: 240;
+            }
+            &#forma-2 {
+                top: 170;
+            }
+        }
+    }
+}
+
 @media (max-width: 1280px) {
     .home {
         .hero {

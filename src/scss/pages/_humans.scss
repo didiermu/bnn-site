@@ -418,13 +418,40 @@
 }
 
 @media (min-width: 1440px) {
-    .humans .adn--col-img {
-        max-width: 520px;
-        height: 520px;
+    .humans {
+        .adn {
+            &--col-img {
+                max-width: 520px;
+                height: 520px;
 
-        picture {
-            width: 100%;
-            height: 100%;
+                picture {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            &__hover-item {
+                span {
+                    top: -4px;
+                }
+
+                &#adn-hover2 {
+                    left: 233px;
+                    top: 281px;
+                }
+                &#adn-hover3 {
+                    top: 344px;
+                    left: 169px;
+                }
+                &#adn-hover4 {
+                    bottom: 61px;
+                    left: 111px;
+
+                    span {
+                        top: -24px;
+                    }
+                }
+            }
         }
     }
 }
@@ -515,18 +542,18 @@
                 }
 
                 &#adn-hover2 {
-                    left: 48%;
-                    top: 55%;
+                    left: 50%;
+                    top: 59%;
                 }
 
                 &#adn-hover3 {
-                    top: 68%;
-                    left: 36%;
+                    top: 72%;
+                    left: 39%;
                 }
 
                 &#adn-hover4 {
-                    bottom: 7%;
-                    left: 27%;
+                    bottom: 5%;
+                    left: 28%;
 
                     span {
                         top: -17px;
