@@ -4,8 +4,9 @@
 }
 
 @mixin text-xl-60 {
-    font-size: calc(56px + 2 * ((100vw - 1920px) / 1280));
-    line-height: normal;
+    // font-size: calc(56px + 2 * ((100vw - 1920px) / 1280));
+    font-size: 56px;
+    line-height: 1.2;
 }
 
 @mixin text-lg-40 {

@@ -36,7 +36,7 @@
 
     h2 {
         @include text-xl-60;
-        letter-spacing: calc(28px + 10 * ((100vw - 1280px) / 1920));
+        letter-spacing: 28px;
         @include font-primary-light;
         text-transform: uppercase;
         margin-right: -28px;
@@ -48,7 +48,7 @@
 
     h4 {
         color: var(--color-negro);
-        letter-spacing: calc(12px + 10 * ((100vw - 1280px) / 1920));
+        letter-spacing: 12px;
         width: max-content;
         position: relative;
         padding: 8px 8px 8px 20px;

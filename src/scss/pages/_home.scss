@@ -39,7 +39,7 @@
         .row {
             flex-direction: row-reverse;
 
-            .momentos__title {
+            .title-decorated {
                 align-items: flex-start;
             }
 
@@ -58,6 +58,8 @@
         padding: var(--spacing-2xl) 0;
 
         .row {
+            position: relative;
+
             .col-12 {
                 text-align: center;
             }
@@ -70,6 +72,7 @@
             height: 800px;
             z-index: -1;
             position: absolute;
+            max-width: 800px;
         }
         text {
             font-size: 20px;
@@ -87,13 +90,13 @@
         }
 
         #forma-2 {
-            top: 290px;
+            top: 0px;
             right: 0;
             width: 50%;
         }
 
         #forma-3 {
-            top: 250px;
+            top: 0px;
             left: 0;
             width: 50%;
         }
@@ -113,7 +116,7 @@
             column-gap: 12px;
             text-align: center;
             position: absolute;
-            top: 100px;
+            top: -60px;
             left: 0;
             right: 0;
             margin: auto;
@@ -139,7 +142,7 @@
         &__imagen {
             picture {
                 display: block;
-                transform: scale(1.4);
+                transform: scale(1.1);
                 max-width: 640px;
 
                 img {
@@ -209,41 +212,8 @@
             }
         }
 
-        &__title {
+        .title-decorated {
             align-items: flex-end;
-            display: flex;
-            flex-direction: column;
-
-            h2 {
-                margin-right: -28px;
-                @include text-xl-60;
-                letter-spacing: 28px;
-                @include font-primary-light;
-                text-transform: uppercase;
-
-                span {
-                    @include font-primary-bold;
-                }
-            }
-
-            h4 {
-                color: var(--color-negro);
-                letter-spacing: calc(12px + 10 * ((100vw - 1280px) / 1920));
-                width: max-content;
-                position: relative;
-                padding: 8px 8px 8px 20px;
-                text-transform: uppercase;
-                &::before {
-                    content: "";
-                    background: var(--color-primario-400);
-                    position: absolute;
-                    border-radius: 4px 12px 4px 12px;
-                    inset: 0;
-                    z-index: -1;
-                    display: block;
-                    transform: skew(-10deg);
-                }
-            }
         }
 
         &__logos {
@@ -694,7 +664,7 @@
 
         .slider-wrapper {
             display: flex;
-            column-gap: 50px;
+            // column-gap: 50px;
             padding: var(--spacing-2xl) 0;
             width: 100%;
             scroll-snap-type: x proximity;
@@ -708,7 +678,7 @@
         .slider-slide {
             display: flex;
             align-items: center;
-            column-gap: 40px;
+            // column-gap: 40px;
             scroll-snap-align: start;
             flex: 1 0 auto;
 
@@ -722,6 +692,7 @@
                     background: var(--icon-rombo-gris) no-repeat center / 28px;
                     bottom: 35px;
                     position: relative;
+                    margin: 0 40px;
                 }
             }
 
@@ -734,6 +705,7 @@
                 background: var(--icon-rombo-gris) no-repeat center / 28px;
                 bottom: 35px;
                 position: relative;
+                margin: 0 40px;
             }
 
             figure {
@@ -775,7 +747,7 @@
                             opacity: 1;
                         }
 
-                        video {
+                        picture {
                             filter: grayscale(0);
                         }
                     }
@@ -880,6 +852,7 @@
                 video {
                     height: 100%;
                     width: 100%;
+                    object-fit: cover;
                 }
 
                 button {
@@ -914,22 +887,15 @@
     }
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1920px) {
     .home {
         .momentos svg {
-            height: 1200px;
-
-            &#forma-1 {
-                top: 240;
-            }
-            &#forma-2 {
-                top: 170;
-            }
+            height: 900px;
         }
     }
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1279px) {
     .home {
         .hero {
             height: auto !important;
@@ -950,7 +916,7 @@
                 padding: var(--spacing-6xl) 0 var(--spacing-2xl);
             }
 
-            &__title {
+            .title-decorated {
                 text-align: center;
                 place-items: center;
 
@@ -976,7 +942,7 @@
             }
 
             #forma-3 {
-                top: -50px;
+                top: -140px;
                 width: 100%;
             }
 
@@ -1111,28 +1077,47 @@
 
             .slider {
                 &-wrapper {
-                    column-gap: var(--spacing-lg);
+                    // column-gap: var(--spacing-lg);
                     padding-top: var(--spacing-xl);
                 }
 
                 &-slide {
-                    column-gap: var(--spacing-lg);
-                    // min-width: 80vw;
-                    min-width: 80%;
+                    // column-gap: var(--spacing-lg);
+                    // min-width: 88%;
+                    flex: 0 1 100%;
+
+                    &:last-child {
+                        // margin-right: 20px;
+
+                        &::after {
+                            margin: 0 10px;
+                            background-size: 24px;
+                        }
+                    }
 
                     &::before,
                     &::after {
                         bottom: 80px !important;
+                        margin: 0 10px;
+                        background-size: 24px;
                     }
 
                     figure {
-                        width: 250px;
+                        width: 270px;
+                        flex: 0 0 270px;
                         align-self: flex-start;
+
+                        &::after {
+                            opacity: 1;
+                            bottom: 130px;
+                        }
                     }
 
                     picture {
                         height: auto;
+                        width: 100%;
                         aspect-ratio: 1 / 1;
+                        filter: grayscale(0);
 
                         &.play {
                             filter: grayscale(0);
@@ -1164,6 +1149,7 @@
         #modal-video {
             .btn-close {
                 right: var(--spacing-xl);
+                top: 24px;
             }
 
             .modal-body {

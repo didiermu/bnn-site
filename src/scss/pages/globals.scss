@@ -48,8 +48,8 @@
             padding: 0 80px;
         }
         @include media-breakpoint-up(xxl) {
-            // max-width: 1368px;
-            padding: 0 200px;
+            max-width: 1520px;
+            // padding: 0;
         }
     }
 
