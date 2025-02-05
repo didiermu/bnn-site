@@ -7,6 +7,11 @@
     &#body-home {
         background: var(--color-negro-500);
 
+        .header {
+            position: fixed;
+            width: 100%;
+        }
+
         section:not(.footer, .logos, .sticky) {
             background: var(--color-negro-500);
         }

@@ -3,6 +3,7 @@
     display: flex;
     align-items: center;
     position: sticky;
+
     top: 0;
     z-index: 9;
     background: rgba(15, 16, 19, 1);
@@ -183,6 +184,17 @@
 
                 li {
                     column-gap: var(--spacing-xs);
+
+                    &:hover {
+                        span {
+                            font-size: 32px;
+                            @include font-primary-light;
+                        }
+
+                        &::after {
+                            background-image: var(--icon-rombo-amarillo);
+                        }
+                    }
 
                     &::before {
                         font-size: 16px;

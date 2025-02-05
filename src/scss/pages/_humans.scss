@@ -328,13 +328,14 @@
 
     .team {
         .row {
-            row-gap: var(--spacing-2xl);
+            row-gap: var(--spacing-4xl);
         }
 
         .title-decorated {
             align-items: center;
 
             p {
+                margin: var(--spacing-2xl) 0 0;
                 font-size: 20px;
                 letter-spacing: 1px;
                 text-align: center;
@@ -618,6 +619,7 @@
             .title-decorated {
                 p {
                     font-size: 16px;
+                    margin-top: var(--spacing-lg);
                 }
             }
 
