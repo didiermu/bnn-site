@@ -99,10 +99,9 @@
       gtag('config', '');
    </script>
    <!-- End Google Tag Manager -->
-  <script type="module" crossorigin src="../js/main-B38QLNZx.js"></script>
-  <script type="module" crossorigin src="../js/home-Bp-VicVL.js"></script>
-  <link rel="stylesheet" crossorigin href="../css/main-DUaHyFAf.css">
-  <link rel="stylesheet" crossorigin href="../css/home-BUrcyj0q.css">
+  <script type="module" crossorigin src="../js/swiper-bundle-ChXMA7iI.js"></script>
+  <script type="module" crossorigin src="../js/home-DG-nxmVa.js"></script>
+  <link rel="stylesheet" crossorigin href="../css/swiper-bundle-BJXoLa7q.css">
 </head>
 
 <body id="body-home">
@@ -115,23 +114,23 @@
             <source src="../video/video-hero.mp4" media="(min-width: 1280px)">
             <source src="../video/BNN-HOME-HEAD-MOVIL.mp4" type="video/mp4">
          </video>
-         <div class="sticky-banner">
-            <div class="container">
-               <div class="row">
-                  <p><strong>NATURAL BORN ENHANCERS.</strong></p>
-                  <p>Potenciamos <strong>ideas con el poder</strong> de los humanos. <br> Potenciamos <strong>a los
-                        humanos con la optimización de las máquinas.</strong>
-                     <br> Potenciamos a nuestros partners con una <strong>visión en constante evolución.</strong>
-                  </p>
-               </div>
-            </div>
-         </div>
          <div class="marquee-container">
             <div class="marquee-content" id="marquee">
                <span>Explora como transformamos las industrias</span>
             </div>
          </div>
       </section>
+      <div class="sticky-banner">
+         <div class="container">
+            <div class="row">
+               <h3><strong>NATURAL BORN ENHANCERS</strong></h3>
+               <p>Potenciamos <strong>ideas con el poder</strong> de los humanos. <br> Potenciamos <strong>a los humanos
+                     con la optimización de las máquinas.</strong>
+                  <br> Potenciamos a nuestros partners con una <strong>visión en constante evolución.</strong>
+               </p>
+            </div>
+         </div>
+      </div>
       <div class="momentos-titulo">
          <div class="container">
             <div class="row">
@@ -150,6 +149,11 @@
                <span>INNOVACIÓN</span>
                <span>RELEVANCIA</span>
             </h2>
+            <div class="hover-brujula">
+               <span id="hover1-brujula"></span>
+               <span id="hover2-brujula"></span>
+               <span id="hover3-brujula"></span>
+            </div>
             <picture id="dots">
                <img src="../img/dots-brujula.png" alt="">
             </picture>
@@ -269,15 +273,13 @@
             </div>
          </div>
       </section>
-      <section class="sticky">
+      <section class="sticky sticky-simple">
          <div class="sticky-banner">
             <div class="container">
                <div class="row">
                   <p>Transformamos el futuro del marketing con la guía de la data, el poder de las ideas y una visión
                      anclada en la innovación, creando soluciones que llevan el éxito y producen lo extraordinario. </p>
-                  <div class="momentos__text" style="margin: 0 auto;">
-                     <h5 class="text-center">La innovación no es una opción, es evolución.</h5>
-                  </div>
+                  <h4><strong>La innovación no es una opción, es evolución</strong></h4>
                </div>
             </div>
          </div>
@@ -328,9 +330,9 @@
          </div>
          <div class="container-fluid">
             <div class="col-12">
-               <div class="slider">
-                  <div class="slider-wrapper">
-                     <div class="slider-slide">
+               <div class="swiper slider">
+                  <div class="swiper-wrapper slider-wrapper">
+                     <div class="slider-slide swiper-slide">
                         <figure data-bs-toggle="modal" data-bs-target="#modal-video"
                            data-video="../video/A.BOLD_A1_MeVeo_CancelaLasExcusas_1.mp4">
                            <picture>
@@ -346,7 +348,7 @@
                            </div>
                         </figure>
                      </div>
-                     <div class="slider-slide">
+                     <div class="slider-slide swiper-slide">
                         <figure data-bs-toggle="modal" data-bs-target="#modal-video"
                            data-video="../video/B.TRENDY_B1_DogChow_MysteryBox_1.mp4">
                            <picture>
@@ -362,7 +364,7 @@
                            </div>
                         </figure>
                      </div>
-                     <div class="slider-slide">
+                     <div class="slider-slide swiper-slide">
                         <figure data-bs-toggle="modal" data-bs-target="#modal-video"
                            data-video="../video/B.TRENDY_B2_OXXO_DiloConOXXO_1.mp4">
                            <picture>
@@ -378,7 +380,7 @@
                            </div>
                         </figure>
                      </div>
-                     <div class="slider-slide">
+                     <div class="slider-slide swiper-slide">
                         <figure data-bs-toggle="modal" data-bs-target="#modal-video"
                            data-video="../video/A.BOLD_A3_Aspirina_SoundOff_1.mp4">
                            <picture>
@@ -394,7 +396,7 @@
                            </div>
                         </figure>
                      </div>
-                     <div class="slider-slide">
+                     <div class="slider-slide swiper-slide">
                         <figure data-bs-toggle="modal" data-bs-target="#modal-video"
                            data-video="../video/D.DATA-DRIVEN_D1_Roche_RompeElCiclo_1.mp4">
                            <picture>
@@ -410,6 +412,11 @@
                            </div>
                         </figure>
                      </div>
+                  </div>
+                  <div class="swiper-pagination"></div>
+                  <div class="swiper-navigation">
+                     <div class="swiper-button-prev"></div>
+                     <div class="swiper-button-next"></div>
                   </div>
                </div>
             </div>
